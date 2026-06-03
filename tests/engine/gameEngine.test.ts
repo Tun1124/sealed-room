@@ -157,3 +157,26 @@ describe('solvePuzzle', () => {
     expect(effects[0].type).toBe('error');
   });
 });
+
+describe('エッジケース（レビュー指摘）', () => {
+  it('同じパズルを二度解いても solvedPuzzles とアイテムは重複しない', () => {
+    const s0 = createInitialState(scene);
+    const r1 = applyAction(scene, s0, { type: 'solvePuzzle', puzzleId: 'drawerLock', answer: '1234' });
+    const r2 = applyAction(scene, r1.state, { type: 'solvePuzzle', puzzleId: 'drawerLock', answer: '1234' });
+    expect(r2.state.solvedPuzzles.filter((p) => p === 'drawerLock')).toHaveLength(1);
+    expect(r2.state.inventory.filter((i) => i === 'key')).toHaveLength(1);
+  });
+
+  it('既に勝利済みなら won を再発火しない', () => {
+    const s0 = { ...createInitialState(scene), flags: { escaped: true } };
+    const { effects } = applyAction(scene, s0, { type: 'solvePuzzle', puzzleId: 'exitDoor', answer: '7391' });
+    expect(effects).not.toContainEqual({ type: 'won' });
+  });
+
+  it('combine の output を既に所持していれば itemAdded を発火しない', () => {
+    const s0 = { ...createInitialState(scene), inventory: ['noteA', 'noteB', 'fullNote'] };
+    const { state, effects } = applyAction(scene, s0, { type: 'combine', itemA: 'noteA', itemB: 'noteB' });
+    expect(effects).not.toContainEqual({ type: 'itemAdded', itemId: 'fullNote' });
+    expect(state.inventory.filter((i) => i === 'fullNote')).toHaveLength(1);
+  });
+});

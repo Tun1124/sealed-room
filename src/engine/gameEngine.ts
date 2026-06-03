@@ -77,7 +77,9 @@ function solvePuzzle(
   }
   const effects: GameEffect[] = [];
   if (puzzle.onSolve.message) effects.push({ type: 'message', text: puzzle.onSolve.message });
-  (puzzle.onSolve.giveItems ?? []).forEach((id) => effects.push({ type: 'itemAdded', itemId: id }));
+  (puzzle.onSolve.giveItems ?? []).forEach((id) => {
+    if (!state.inventory.includes(id)) effects.push({ type: 'itemAdded', itemId: id });
+  });
 
   const wasWon = state.flags[scene.winFlag] === true;
   const isWon = newState.flags[scene.winFlag] === true;
@@ -99,9 +101,12 @@ function combine(scene: SceneData, state: GameState, itemA: string, itemB: strin
     return { state, effects: [{ type: 'error', text: 'アイテムが足りない。' }] };
   }
   const inventory = state.inventory.filter((id) => id !== itemA && id !== itemB);
-  if (!inventory.includes(combo.output)) inventory.push(combo.output);
-  const effects: GameEffect[] = [{ type: 'itemAdded', itemId: combo.output }];
-  if (combo.message) effects.unshift({ type: 'message', text: combo.message });
+  const effects: GameEffect[] = [];
+  if (combo.message) effects.push({ type: 'message', text: combo.message });
+  if (!inventory.includes(combo.output)) {
+    inventory.push(combo.output);
+    effects.push({ type: 'itemAdded', itemId: combo.output });
+  }
   return { state: { ...state, inventory }, effects };
 }
 
