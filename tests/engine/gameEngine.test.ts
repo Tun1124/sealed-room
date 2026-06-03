@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { createInitialState, applyAction } from '../../src/engine/gameEngine';
 import type { SceneData } from '../../src/engine/types';
+import { chapter1 } from '../../src/data/chapter1';
 
 export const scene: SceneData = {
   id: 'ch1',
@@ -178,5 +179,20 @@ describe('エッジケース（レビュー指摘）', () => {
     const { state, effects } = applyAction(scene, s0, { type: 'combine', itemA: 'noteA', itemB: 'noteB' });
     expect(effects).not.toContainEqual({ type: 'itemAdded', itemId: 'fullNote' });
     expect(state.inventory.filter((i) => i === 'fullNote')).toHaveLength(1);
+  });
+});
+
+describe('chapter1 クリア導線', () => {
+  it('一連の操作で escaped に到達する', () => {
+    let s = createInitialState(chapter1);
+    s = applyAction(chapter1, s, { type: 'solvePuzzle', puzzleId: 'drawerLock', answer: '1234' }).state;
+    expect(s.inventory).toContain('key');
+    s = applyAction(chapter1, s, { type: 'pickup', itemId: 'noteA' }).state;
+    s = applyAction(chapter1, s, { type: 'pickup', itemId: 'noteB' }).state;
+    s = applyAction(chapter1, s, { type: 'combine', itemA: 'noteA', itemB: 'noteB' }).state;
+    expect(s.inventory).toContain('fullNote');
+    const final = applyAction(chapter1, s, { type: 'solvePuzzle', puzzleId: 'exitDoor', answer: '7391' });
+    expect(final.state.flags.escaped).toBe(true);
+    expect(final.effects).toContainEqual({ type: 'won' });
   });
 });
