@@ -2,7 +2,7 @@ import type { SceneData, GameState, GameAction, GameEffect, Hotspot } from '../e
 import { isHotspotActive } from '../engine/gameEngine';
 
 export interface RendererCallbacks {
-  onAction: (action: GameAction) => void;
+  onAction: (action: GameAction) => GameEffect[];
 }
 
 export class Renderer {
@@ -84,8 +84,8 @@ export class Renderer {
     box.querySelector<HTMLButtonElement>('#code-cancel')!.onclick = close;
     box.querySelector<HTMLButtonElement>('#code-ok')!.onclick = () => {
       const answer = box.querySelector<HTMLInputElement>('#code-input')!.value;
-      this.cb.onAction({ type: 'solvePuzzle', puzzleId, answer });
-      close();
+      const effects = this.cb.onAction({ type: 'solvePuzzle', puzzleId, answer });
+      if (!effects.some((e) => e.type === 'error')) close();
     };
   }
 
