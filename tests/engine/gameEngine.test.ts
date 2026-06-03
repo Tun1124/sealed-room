@@ -63,3 +63,25 @@ describe('navigate', () => {
     expect(s0.currentNodeId).toBe('room');
   });
 });
+
+describe('pickup', () => {
+  it('アイテムを取得しインベントリに加える', () => {
+    const s0 = createInitialState(scene);
+    const { state, effects } = applyAction(scene, s0, { type: 'pickup', itemId: 'key' });
+    expect(state.inventory).toContain('key');
+    expect(effects).toContainEqual({ type: 'itemAdded', itemId: 'key' });
+  });
+
+  it('同じアイテムを二重取得しない（冪等）', () => {
+    const s0 = createInitialState(scene);
+    const r1 = applyAction(scene, s0, { type: 'pickup', itemId: 'key' });
+    const r2 = applyAction(scene, r1.state, { type: 'pickup', itemId: 'key' });
+    expect(r2.state.inventory.filter((i) => i === 'key')).toHaveLength(1);
+  });
+
+  it('未知アイテムはエラー', () => {
+    const s0 = createInitialState(scene);
+    const { effects } = applyAction(scene, s0, { type: 'pickup', itemId: 'zzz' });
+    expect(effects[0].type).toBe('error');
+  });
+});
