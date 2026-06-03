@@ -1,5 +1,5 @@
 import type {
-  SceneData, GameState, GameAction, ActionResult, Hotspot, GameEffect,
+  SceneData, GameState, GameAction, ActionResult, Hotspot, GameEffect, SolveEffect,
 } from './types';
 import { meetsRequirement } from './requirements';
 
@@ -28,6 +28,8 @@ export function applyAction(
       return pickup(scene, state, action.itemId);
     case 'combine':
       return combine(scene, state, action.itemA, action.itemB);
+    case 'solvePuzzle':
+      return solvePuzzle(scene, state, action.puzzleId, action.answer);
     default:
       return { state, effects: [{ type: 'error', text: `未対応のアクション: ${(action as GameAction).type}` }] };
   }
@@ -49,6 +51,39 @@ function pickup(scene: SceneData, state: GameState, itemId: string): ActionResul
   }
   const newState = { ...state, inventory: [...state.inventory, itemId] };
   return { state: newState, effects: [{ type: 'itemAdded', itemId }] };
+}
+
+function applySolveEffect(state: GameState, effect: SolveEffect): GameState {
+  const flags = { ...state.flags };
+  (effect.setFlags ?? []).forEach((f) => { flags[f] = true; });
+  const inventory = [...state.inventory];
+  (effect.giveItems ?? []).forEach((id) => { if (!inventory.includes(id)) inventory.push(id); });
+  return { ...state, flags, inventory };
+}
+
+function solvePuzzle(
+  scene: SceneData, state: GameState, puzzleId: string, answer: string,
+): ActionResult {
+  const puzzle = scene.puzzles[puzzleId];
+  if (!puzzle) {
+    return { state, effects: [{ type: 'error', text: `未知のパズル: ${puzzleId}` }] };
+  }
+  if (answer.trim() !== puzzle.solution) {
+    return { state, effects: [{ type: 'error', text: '違う…もう一度。' }] };
+  }
+  let newState = applySolveEffect(state, puzzle.onSolve);
+  if (!newState.solvedPuzzles.includes(puzzleId)) {
+    newState = { ...newState, solvedPuzzles: [...newState.solvedPuzzles, puzzleId] };
+  }
+  const effects: GameEffect[] = [];
+  if (puzzle.onSolve.message) effects.push({ type: 'message', text: puzzle.onSolve.message });
+  (puzzle.onSolve.giveItems ?? []).forEach((id) => effects.push({ type: 'itemAdded', itemId: id }));
+
+  const wasWon = state.flags[scene.winFlag] === true;
+  const isWon = newState.flags[scene.winFlag] === true;
+  if (!wasWon && isWon) effects.push({ type: 'won' });
+
+  return { state: newState, effects };
 }
 
 function combine(scene: SceneData, state: GameState, itemA: string, itemB: string): ActionResult {

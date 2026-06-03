@@ -119,3 +119,41 @@ describe('combine', () => {
     expect(effects[0].type).toBe('error');
   });
 });
+
+describe('solvePuzzle', () => {
+  it('正解で setFlags / giveItems / message を反映', () => {
+    const s0 = createInitialState(scene);
+    const { state, effects } = applyAction(scene, s0, { type: 'solvePuzzle', puzzleId: 'drawerLock', answer: '1234' });
+    expect(state.flags.drawerOpen).toBe(true);
+    expect(state.inventory).toContain('key');
+    expect(state.solvedPuzzles).toContain('drawerLock');
+    expect(effects).toContainEqual({ type: 'message', text: '引き出しが開いた。' });
+    expect(effects).toContainEqual({ type: 'itemAdded', itemId: 'key' });
+  });
+
+  it('前後の空白を無視して照合する', () => {
+    const s0 = createInitialState(scene);
+    const { state } = applyAction(scene, s0, { type: 'solvePuzzle', puzzleId: 'drawerLock', answer: '  1234 ' });
+    expect(state.solvedPuzzles).toContain('drawerLock');
+  });
+
+  it('不正解はエラーで状態不変', () => {
+    const s0 = createInitialState(scene);
+    const { state, effects } = applyAction(scene, s0, { type: 'solvePuzzle', puzzleId: 'drawerLock', answer: '0000' });
+    expect(effects[0].type).toBe('error');
+    expect(state.flags.drawerOpen).toBeUndefined();
+  });
+
+  it('winFlag を立てるパズルは won エフェクトを出す', () => {
+    const s0 = createInitialState(scene);
+    const { state, effects } = applyAction(scene, s0, { type: 'solvePuzzle', puzzleId: 'exitDoor', answer: '7391' });
+    expect(state.flags.escaped).toBe(true);
+    expect(effects).toContainEqual({ type: 'won' });
+  });
+
+  it('未知パズルはエラー', () => {
+    const s0 = createInitialState(scene);
+    const { effects } = applyAction(scene, s0, { type: 'solvePuzzle', puzzleId: 'nope', answer: 'x' });
+    expect(effects[0].type).toBe('error');
+  });
+});
