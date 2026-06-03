@@ -85,3 +85,37 @@ describe('pickup', () => {
     expect(effects[0].type).toBe('error');
   });
 });
+
+describe('combine', () => {
+  function withItems(...ids: string[]) {
+    return { ...createInitialState(scene), inventory: ids };
+  }
+
+  it('正しい組み合わせで output を生成し入力を消費する', () => {
+    const s0 = withItems('noteA', 'noteB');
+    const { state, effects } = applyAction(scene, s0, { type: 'combine', itemA: 'noteA', itemB: 'noteB' });
+    expect(state.inventory).toContain('fullNote');
+    expect(state.inventory).not.toContain('noteA');
+    expect(state.inventory).not.toContain('noteB');
+    expect(effects).toContainEqual({ type: 'itemAdded', itemId: 'fullNote' });
+  });
+
+  it('順序が逆でも成立する', () => {
+    const s0 = withItems('noteA', 'noteB');
+    const { state } = applyAction(scene, s0, { type: 'combine', itemA: 'noteB', itemB: 'noteA' });
+    expect(state.inventory).toContain('fullNote');
+  });
+
+  it('片方しか持っていなければエラー', () => {
+    const s0 = withItems('noteA');
+    const { state, effects } = applyAction(scene, s0, { type: 'combine', itemA: 'noteA', itemB: 'noteB' });
+    expect(effects[0].type).toBe('error');
+    expect(state.inventory).toEqual(['noteA']);
+  });
+
+  it('定義のない組み合わせはエラー', () => {
+    const s0 = withItems('key', 'noteA');
+    const { effects } = applyAction(scene, s0, { type: 'combine', itemA: 'key', itemB: 'noteA' });
+    expect(effects[0].type).toBe('error');
+  });
+});
