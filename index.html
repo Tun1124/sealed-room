@@ -8,8 +8,19 @@
       * { margin: 0; box-sizing: border-box; }
       body { background:#000; color:#eee; font-family:system-ui,sans-serif; overscroll-behavior:none; }
       #stage { position:relative; width:100vw; max-width:100vh; margin:0 auto; aspect-ratio:9/16; background:#111 center/cover no-repeat; }
-      .hotspot { position:absolute; cursor:pointer; }
-      .hotspot.debug { outline:1px dashed rgba(255,255,0,.5); }
+      .hotspot {
+        position:absolute; cursor:pointer; border-radius:10px;
+        background:rgba(255,255,255,.06);
+        box-shadow:0 0 0 1px rgba(255,255,255,.18) inset;
+        animation:hotspotPulse 2.2s ease-in-out infinite;
+        -webkit-tap-highlight-color:rgba(255,220,80,.35);
+      }
+      .hotspot:active { background:rgba(255,220,80,.25); }
+      @keyframes hotspotPulse {
+        0%,100% { box-shadow:0 0 0 1px rgba(255,255,255,.14) inset; }
+        50% { box-shadow:0 0 0 1px rgba(255,255,255,.34) inset, 0 0 12px rgba(255,255,255,.12); }
+      }
+      .hotspot.debug { outline:1px dashed rgba(255,255,0,.7); background:rgba(255,255,0,.08); }
       #inventory { position:fixed; bottom:0; left:0; right:0; display:flex; gap:8px; padding:8px; background:rgba(0,0,0,.6); }
       .inv-item { font-size:24px; padding:6px; border:1px solid #555; border-radius:8px; cursor:pointer; }
       .inv-item.selected { border-color:#fc0; }
