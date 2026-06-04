@@ -1,91 +1,116 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 1280" preserveAspectRatio="xMidYMid slice">
   <defs>
     <linearGradient id="room" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#0a111c"/>
-      <stop offset="0.55" stop-color="#0c1521"/>
-      <stop offset="1" stop-color="#04070d"/>
+      <stop offset="0" stop-color="#0a111c"/><stop offset="0.5" stop-color="#0c1521"/><stop offset="1" stop-color="#04070d"/>
     </linearGradient>
-    <radialGradient id="amber" cx="0.5" cy="0.05" r="0.75">
-      <stop offset="0" stop-color="#ffb24d" stop-opacity="0.55"/>
-      <stop offset="0.4" stop-color="#ff8a2b" stop-opacity="0.12"/>
-      <stop offset="1" stop-color="#ff8a2b" stop-opacity="0"/>
+    <radialGradient id="amber" cx="0.5" cy="0.04" r="0.7">
+      <stop offset="0" stop-color="#ffb24d" stop-opacity="0.55"/><stop offset="0.4" stop-color="#ff8a2b" stop-opacity="0.12"/><stop offset="1" stop-color="#ff8a2b" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="vig" cx="0.5" cy="0.46" r="0.72">
-      <stop offset="0.4" stop-color="#000" stop-opacity="0"/>
-      <stop offset="1" stop-color="#000" stop-opacity="0.82"/>
+    <radialGradient id="vig" cx="0.5" cy="0.46" r="0.74">
+      <stop offset="0.42" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="0.82"/>
     </radialGradient>
-    <radialGradient id="note" cx="0.5" cy="0.35" r="0.9">
-      <stop offset="0" stop-color="#fff0c2"/>
-      <stop offset="1" stop-color="#e6bd5e"/>
+    <radialGradient id="note" cx="0.5" cy="0.3" r="0.95">
+      <stop offset="0" stop-color="#fff0c2"/><stop offset="1" stop-color="#e6bd5e"/>
     </radialGradient>
-    <linearGradient id="desk" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#223348"/>
-      <stop offset="1" stop-color="#0e1a28"/>
+    <linearGradient id="woodTop" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#6b4a30"/><stop offset="0.5" stop-color="#5a3c26"/><stop offset="1" stop-color="#74532f"/>
     </linearGradient>
-    <linearGradient id="metal" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#2a3d54"/>
-      <stop offset="0.5" stop-color="#1a293a"/>
-      <stop offset="1" stop-color="#24364b"/>
+    <linearGradient id="woodEdge" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3a2616"/><stop offset="1" stop-color="#23160c"/>
     </linearGradient>
+    <linearGradient id="woodFront" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4a3220"/><stop offset="1" stop-color="#2c1d12"/>
+    </linearGradient>
+    <linearGradient id="leg" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#26323f"/><stop offset="0.5" stop-color="#141d27"/><stop offset="1" stop-color="#202b37"/>
+    </linearGradient>
+    <radialGradient id="screen" cx="0.5" cy="0.4" r="0.8">
+      <stop offset="0" stop-color="#13314a"/><stop offset="1" stop-color="#0a1622"/>
+    </radialGradient>
     <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope="0.05"/></feComponentTransfer></filter>
   </defs>
 
   <rect width="720" height="1280" fill="url(#room)"/>
-  <polygon points="300,0 420,0 580,560 140,560" fill="url(#amber)"/>
+  <polygon points="300,0 420,0 600,560 120,560" fill="url(#amber)"/>
   <rect width="720" height="1280" fill="url(#amber)"/>
 
   <!-- emergency strip light -->
   <rect x="250" y="44" width="220" height="12" rx="6" fill="#ffce8a" opacity="0.9"/>
   <rect x="252" y="46" width="216" height="4" rx="2" fill="#fff4dc"/>
 
-  <!-- floor -->
-  <polygon points="0,980 720,980 720,1280 0,1280" fill="#070c14"/>
-  <line x1="120" y1="980" x2="-40" y2="1280" stroke="#16263a" stroke-width="2" opacity="0.5"/>
-  <line x1="600" y1="980" x2="760" y2="1280" stroke="#16263a" stroke-width="2" opacity="0.5"/>
+  <!-- back wall / floor split -->
+  <rect x="0" y="700" width="720" height="6" fill="#0a121c" opacity="0.7"/>
+  <polygon points="0,706 720,706 720,1280 0,1280" fill="#060b13"/>
+  <line x1="180" y1="706" x2="40" y2="1280" stroke="#13202f" stroke-width="2" opacity="0.4"/>
+  <line x1="540" y1="706" x2="680" y2="1280" stroke="#13202f" stroke-width="2" opacity="0.4"/>
 
-  <!-- right locker (to cabinet) -->
-  <rect x="566" y="470" width="150" height="470" rx="8" fill="url(#metal)" stroke="#3a516e" stroke-width="2"/>
-  <line x1="641" y1="476" x2="641" y2="934" stroke="#0b131c" stroke-width="3"/>
-  <rect x="600" y="690" width="10" height="40" rx="4" fill="#5c7c9c"/>
-  <rect x="672" y="690" width="10" height="40" rx="4" fill="#5c7c9c"/>
-  <polygon points="690,610 705,630 690,650" fill="#4fd0e0" opacity="0.7"/>
-
-  <!-- left exit door (to door) -->
-  <rect x="14" y="450" width="150" height="510" rx="4" fill="#10202c" stroke="#26485a" stroke-width="2"/>
-  <rect x="40" y="496" width="96" height="30" rx="4" fill="#0c3b2e"/>
-  <text x="88" y="518" font-family="Chakra Petch, sans-serif" font-size="20" font-weight="700" fill="#48e39a" text-anchor="middle" letter-spacing="2">EXIT</text>
-  <rect x="40" y="690" width="8" height="44" rx="4" fill="#3ad0a0"/>
-  <polygon points="30,610 15,630 30,650" fill="#4fd0e0" opacity="0.7"/>
-
-  <!-- desk -->
-  <rect x="60" y="640" width="600" height="60" rx="6" fill="url(#desk)" stroke="#33506f" stroke-width="1.5"/>
-  <rect x="60" y="700" width="600" height="16" fill="#0a1420"/>
-  <!-- monitor -->
-  <rect x="300" y="470" width="180" height="120" rx="8" fill="#0c1622" stroke="#2c4763" stroke-width="3"/>
-  <rect x="312" y="482" width="156" height="96" rx="3" fill="#0e1f2c"/>
-  <rect x="376" y="590" width="28" height="44" fill="#1a2c40"/>
-  <rect x="346" y="632" width="88" height="10" rx="5" fill="#1a2c40"/>
-
-  <!-- glowing sticky note (examine) -->
-  <g transform="rotate(-4 353 780)">
-    <rect x="288" y="704" width="130" height="120" rx="4" fill="url(#note)"/>
-    <rect x="288" y="704" width="130" height="120" rx="4" fill="none" stroke="#fff6da" stroke-width="1.5" opacity="0.6"/>
-    <line x1="306" y1="736" x2="400" y2="736" stroke="#9a7b2e" stroke-width="3" stroke-linecap="round"/>
-    <line x1="306" y1="760" x2="392" y2="760" stroke="#9a7b2e" stroke-width="3" stroke-linecap="round"/>
-    <line x1="306" y1="784" x2="372" y2="784" stroke="#9a7b2e" stroke-width="3" stroke-linecap="round"/>
+  <!-- navigation arrows (left = door, right = cabinet) -->
+  <g stroke="#4fd0e0" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.85">
+    <circle cx="52" cy="652" r="40" fill="#4fd0e0" opacity="0.06" stroke="none"/>
+    <polyline points="64,612 36,652 64,692"/>
+    <circle cx="668" cy="652" r="40" fill="#4fd0e0" opacity="0.06" stroke="none"/>
+    <polyline points="656,612 684,652 656,692"/>
   </g>
 
-  <!-- drawer unit with keypad lock (openPuzzle) -->
-  <rect x="252" y="896" width="216" height="256" rx="8" fill="url(#desk)" stroke="#33506f" stroke-width="2"/>
-  <rect x="270" y="916" width="180" height="64" rx="6" fill="#0d1a28" stroke="#2c4763" stroke-width="1.5"/>
-  <rect x="332" y="940" width="56" height="8" rx="4" fill="#3a5b7a"/>
-  <rect x="270" y="996" width="180" height="64" rx="6" fill="#0d1a28" stroke="#2c4763" stroke-width="1.5"/>
-  <rect x="332" y="1020" width="56" height="8" rx="4" fill="#3a5b7a"/>
-  <!-- mini keypad hint on lower drawer -->
-  <rect x="296" y="1076" width="128" height="62" rx="8" fill="#091420" stroke="#ff9d3c" stroke-width="1.5"/>
+  <!-- ===== DESK ===== -->
+  <!-- legs -->
+  <polygon points="132,684 158,684 150,1066 116,1066" fill="url(#leg)"/>
+  <polygon points="588,684 562,684 570,1066 604,1066" fill="url(#leg)"/>
+
+  <!-- pedestal (drawer unit under the desktop) -->
+  <polygon points="276,684 444,684 452,1066 268,1066" fill="url(#woodFront)" stroke="#241710" stroke-width="2"/>
+  <polygon points="444,684 470,690 476,1060 452,1066" fill="#1f140b"/>
+  <!-- drawer 1 -->
+  <rect x="288" y="700" width="146" height="80" rx="4" fill="#4f351f" stroke="#221409" stroke-width="2"/>
+  <rect x="338" y="734" width="46" height="9" rx="4" fill="#9aa6b4"/>
+  <!-- drawer 2 -->
+  <rect x="288" y="792" width="148" height="80" rx="4" fill="#4f351f" stroke="#221409" stroke-width="2"/>
+  <rect x="338" y="826" width="48" height="9" rx="4" fill="#9aa6b4"/>
+  <!-- drawer 3 (keypad lock) -->
+  <rect x="288" y="884" width="150" height="172" rx="4" fill="#523620" stroke="#221409" stroke-width="2"/>
+  <rect x="336" y="900" width="52" height="9" rx="4" fill="#9aa6b4"/>
+  <!-- keypad panel -->
+  <rect x="312" y="956" width="102" height="84" rx="9" fill="#0a141f" stroke="#ff9d3c" stroke-width="2"/>
+  <rect x="324" y="966" width="78" height="20" rx="4" fill="#06222e"/>
+  <text x="363" y="982" font-family="Chakra Petch, monospace" font-size="13" fill="#4fd0e0" text-anchor="middle" letter-spacing="4">----</text>
   <g fill="#ffb24d">
-    <circle cx="320" cy="1096" r="5"/><circle cx="360" cy="1096" r="5"/><circle cx="400" cy="1096" r="5"/>
-    <circle cx="320" cy="1120" r="5"/><circle cx="360" cy="1120" r="5"/><circle cx="400" cy="1120" r="5"/>
+    <circle cx="338" cy="1008" r="5"/><circle cx="363" cy="1008" r="5"/><circle cx="388" cy="1008" r="5"/>
+    <circle cx="338" cy="1028" r="5"/><circle cx="363" cy="1028" r="5"/><circle cx="388" cy="1028" r="5"/>
+  </g>
+
+  <!-- desktop top surface -->
+  <polygon points="276,548 444,548 610,652 110,652" fill="url(#woodTop)" stroke="#2a1c10" stroke-width="2"/>
+  <!-- grain -->
+  <g stroke="#3a2616" stroke-width="2" opacity="0.35">
+    <line x1="250" y1="572" x2="470" y2="572"/><line x1="210" y1="598" x2="512" y2="598"/>
+    <line x1="165" y1="624" x2="556" y2="624"/><line x1="120" y1="646" x2="600" y2="646"/>
+  </g>
+  <polygon points="276,548 444,548 452,560 268,560" fill="#7d5a36" opacity="0.55"/>
+  <!-- front thickness -->
+  <rect x="110" y="652" width="500" height="30" fill="url(#woodEdge)"/>
+  <rect x="110" y="652" width="500" height="3" fill="#8a6238" opacity="0.6"/>
+
+  <!-- monitor -->
+  <ellipse cx="360" cy="556" rx="60" ry="11" fill="#0a121c" opacity="0.7"/>
+  <rect x="350" y="520" width="20" height="38" fill="#16222f"/>
+  <rect x="288" y="396" width="144" height="130" rx="8" fill="#0c1620" stroke="#2c4763" stroke-width="3"/>
+  <rect x="300" y="408" width="120" height="106" rx="3" fill="url(#screen)"/>
+  <rect x="312" y="424" width="60" height="6" rx="3" fill="#1c3a52"/>
+  <rect x="312" y="440" width="92" height="5" rx="2.5" fill="#16304a" opacity="0.7"/>
+
+  <!-- keyboard -->
+  <polygon points="430,612 566,612 580,640 420,640" fill="#16222f" stroke="#26384a" stroke-width="1.5"/>
+  <g fill="#0c1722">
+    <rect x="436" y="618" width="132" height="7" rx="2"/><rect x="434" y="628" width="136" height="7" rx="2"/>
+  </g>
+
+  <!-- glowing note (examine) -->
+  <g transform="rotate(-5 352 600)">
+    <rect x="300" y="556" width="104" height="92" rx="4" fill="url(#note)"/>
+    <rect x="300" y="556" width="104" height="92" rx="4" fill="none" stroke="#fff6da" stroke-width="1.5" opacity="0.6"/>
+    <line x1="316" y1="584" x2="388" y2="584" stroke="#9a7b2e" stroke-width="3" stroke-linecap="round"/>
+    <line x1="316" y1="604" x2="380" y2="604" stroke="#9a7b2e" stroke-width="3" stroke-linecap="round"/>
+    <line x1="316" y1="624" x2="364" y2="624" stroke="#9a7b2e" stroke-width="3" stroke-linecap="round"/>
   </g>
 
   <rect width="720" height="1280" fill="url(#vig)"/>

@@ -19,10 +19,11 @@
   <rect width="720" height="1280" fill="url(#green)"/>
   <polygon points="0,1010 720,1010 720,1280 0,1280" fill="#070c14"/>
 
-  <!-- right back hint -->
-  <rect x="586" y="450" width="120" height="520" rx="4" fill="#10202c" stroke="#26485a" stroke-width="2"/>
-  <polygon points="628,612 650,634 628,656" fill="#4fd0e0" opacity="0.75"/>
-  <text x="646" y="700" font-family="Chakra Petch, sans-serif" font-size="16" fill="#4fd0e0" opacity="0.7" text-anchor="middle">BACK</text>
+  <!-- right back arrow -->
+  <g stroke="#4fd0e0" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.85">
+    <circle cx="656" cy="640" r="40" fill="#4fd0e0" opacity="0.06" stroke="none"/>
+    <polyline points="644,600 672,640 644,680"/>
+  </g>
 
   <!-- the exit door -->
   <rect x="150" y="210" width="360" height="800" rx="8" fill="url(#door)" stroke="#42607f" stroke-width="3"/>

@@ -28,13 +28,13 @@ export const chapter1: SceneData = {
     desk: {
       id: 'desk', image: 'scenes/chapter1/desk.svg',
       hotspots: [
-        { id: 'note-on-desk', area: { x: 40, y: 55, width: 18, height: 12 },
+        { id: 'note-on-desk', area: { x: 40, y: 43, width: 17, height: 13 },
           action: { type: 'examine', text: '走り書き：「引き出しは 1234」' } },
-        { id: 'drawer', area: { x: 35, y: 70, width: 30, height: 20 },
+        { id: 'drawer', area: { x: 36, y: 68, width: 29, height: 18 },
           action: { type: 'openPuzzle', puzzleId: 'drawerLock' } },
-        { id: 'to-cabinet', area: { x: 80, y: 40, width: 15, height: 30 },
+        { id: 'to-cabinet', area: { x: 84, y: 45, width: 13, height: 13 },
           action: { type: 'navigate', targetNodeId: 'cabinet' } },
-        { id: 'to-door', area: { x: 3, y: 40, width: 15, height: 30 },
+        { id: 'to-door', area: { x: 3, y: 45, width: 13, height: 13 },
           action: { type: 'navigate', targetNodeId: 'door' } },
       ],
     },
