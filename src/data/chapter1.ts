@@ -28,9 +28,9 @@ export const chapter1: SceneData = {
     desk: {
       id: 'desk', image: 'scenes/chapter1/desk.svg',
       hotspots: [
-        { id: 'note-on-desk', area: { x: 40, y: 43, width: 17, height: 13 },
+        { id: 'note-on-desk', area: { x: 34, y: 42, width: 18, height: 12 },
           action: { type: 'examine', text: '走り書き：「引き出しは 1234」' } },
-        { id: 'drawer', area: { x: 36, y: 68, width: 29, height: 18 },
+        { id: 'drawer', area: { x: 43, y: 69, width: 24, height: 15 },
           action: { type: 'openPuzzle', puzzleId: 'drawerLock' } },
         { id: 'to-cabinet', area: { x: 84, y: 45, width: 13, height: 13 },
           action: { type: 'navigate', targetNodeId: 'cabinet' } },
