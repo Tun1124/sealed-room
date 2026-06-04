@@ -2,7 +2,7 @@ import type { SceneData } from '../engine/types';
 
 export const chapter1: SceneData = {
   id: 'chapter1',
-  title: '停電したオフィス',
+  title: '停電したオフィス（チュートリアル）',
   startNodeId: 'desk',
   winFlag: 'escaped',
   items: {
@@ -26,7 +26,7 @@ export const chapter1: SceneData = {
   ],
   nodes: {
     desk: {
-      id: 'desk', image: 'scenes/chapter1/desk.jpg',
+      id: 'desk', image: 'scenes/chapter1/desk.svg',
       hotspots: [
         { id: 'note-on-desk', area: { x: 40, y: 55, width: 18, height: 12 },
           action: { type: 'examine', text: '走り書き：「引き出しは 1234」' } },
@@ -39,7 +39,7 @@ export const chapter1: SceneData = {
       ],
     },
     cabinet: {
-      id: 'cabinet', image: 'scenes/chapter1/cabinet.jpg',
+      id: 'cabinet', image: 'scenes/chapter1/cabinet.svg',
       hotspots: [
         { id: 'open-cabinet', area: { x: 30, y: 30, width: 40, height: 40 },
           requires: { hasItems: ['key'] },
@@ -49,7 +49,7 @@ export const chapter1: SceneData = {
       ],
     },
     cabinetOpen: {
-      id: 'cabinetOpen', image: 'scenes/chapter1/cabinet-open.jpg',
+      id: 'cabinetOpen', image: 'scenes/chapter1/cabinet-open.svg',
       hotspots: [
         { id: 'pick-noteA', area: { x: 30, y: 40, width: 15, height: 15 },
           action: { type: 'pickup', itemId: 'noteA' } },
@@ -60,7 +60,7 @@ export const chapter1: SceneData = {
       ],
     },
     door: {
-      id: 'door', image: 'scenes/chapter1/door.jpg',
+      id: 'door', image: 'scenes/chapter1/door.svg',
       hotspots: [
         { id: 'door-lock', area: { x: 40, y: 45, width: 20, height: 15 },
           action: { type: 'openPuzzle', puzzleId: 'exitDoor' } },

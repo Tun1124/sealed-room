@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 1280" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="room" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0a111c"/><stop offset="0.55" stop-color="#0c1521"/><stop offset="1" stop-color="#04070d"/>
+    </linearGradient>
+    <radialGradient id="amber" cx="0.5" cy="0.1" r="0.8">
+      <stop offset="0" stop-color="#ffb24d" stop-opacity="0.4"/><stop offset="0.45" stop-color="#ff8a2b" stop-opacity="0.1"/><stop offset="1" stop-color="#ff8a2b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="vig" cx="0.5" cy="0.46" r="0.72">
+      <stop offset="0.4" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="0.82"/>
+    </radialGradient>
+    <linearGradient id="metal" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#33485f"/><stop offset="0.5" stop-color="#1c2c3e"/><stop offset="1" stop-color="#2b4057"/>
+    </linearGradient>
+    <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope="0.05"/></feComponentTransfer></filter>
+  </defs>
+
+  <rect width="720" height="1280" fill="url(#room)"/>
+  <rect width="720" height="1280" fill="url(#amber)"/>
+  <polygon points="0,1000 720,1000 720,1280 0,1280" fill="#070c14"/>
+
+  <!-- left back door hint -->
+  <rect x="14" y="450" width="120" height="520" rx="4" fill="#10202c" stroke="#26485a" stroke-width="2"/>
+  <polygon points="92,612 70,634 92,656" fill="#4fd0e0" opacity="0.75"/>
+  <text x="74" y="700" font-family="Chakra Petch, sans-serif" font-size="16" fill="#4fd0e0" opacity="0.7" text-anchor="middle">BACK</text>
+
+  <!-- tall locker -->
+  <rect x="196" y="300" width="324" height="700" rx="10" fill="url(#metal)" stroke="#42607f" stroke-width="3"/>
+  <rect x="196" y="300" width="324" height="40" rx="10" fill="#0c1420" opacity="0.5"/>
+  <line x1="358" y1="312" x2="358" y2="988" stroke="#0a121b" stroke-width="4"/>
+  <!-- vents -->
+  <g stroke="#0c1722" stroke-width="3">
+    <line x1="240" y1="370" x2="330" y2="370"/><line x1="240" y1="390" x2="330" y2="390"/><line x1="240" y1="410" x2="330" y2="410"/>
+    <line x1="386" y1="370" x2="476" y2="370"/><line x1="386" y1="390" x2="476" y2="390"/><line x1="386" y1="410" x2="476" y2="410"/>
+  </g>
+  <!-- handles -->
+  <rect x="330" y="600" width="12" height="90" rx="6" fill="#6f90b0"/>
+  <rect x="374" y="600" width="12" height="90" rx="6" fill="#6f90b0"/>
+  <!-- lock cylinder glowing -->
+  <circle cx="358" cy="560" r="26" fill="#0a131d" stroke="#ff9d3c" stroke-width="2.5"/>
+  <circle cx="358" cy="554" r="6" fill="#ffb24d"/>
+  <rect x="354" y="556" width="8" height="18" rx="3" fill="#ffb24d"/>
+
+  <rect width="720" height="1280" fill="url(#vig)"/>
+  <rect width="720" height="1280" filter="url(#grain)" opacity="0.5"/>
+</svg>

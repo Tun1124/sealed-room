@@ -1,17 +1,21 @@
 import type { SceneData, GameState, GameAction, GameEffect, Hotspot } from '../engine/types';
 import { isHotspotActive } from '../engine/gameEngine';
+import { openKeypad } from './keypad';
 
 export interface RendererCallbacks {
   onAction: (action: GameAction) => GameEffect[];
+  onExamine?: (hotspotId: string, text: string) => void;
 }
 
 export class Renderer {
   private selectedItem: string | null = null;
+  private state!: GameState;
   private readonly base = import.meta.env.BASE_URL;
 
   constructor(private scene: SceneData, private cb: RendererCallbacks) {}
 
   render(state: GameState): void {
+    this.state = state;
     this.renderStage(state);
     this.renderInventory(state);
   }
@@ -40,10 +44,19 @@ export class Renderer {
 
   private onHotspot(h: Hotspot): void {
     switch (h.action.type) {
-      case 'navigate': this.cb.onAction({ type: 'navigate', targetNodeId: h.action.targetNodeId }); break;
-      case 'examine': this.toast(h.action.text); break;
-      case 'pickup': this.cb.onAction({ type: 'pickup', itemId: h.action.itemId }); break;
-      case 'openPuzzle': this.openPuzzle(h.action.puzzleId); break;
+      case 'navigate':
+        this.cb.onAction({ type: 'navigate', targetNodeId: h.action.targetNodeId });
+        break;
+      case 'examine':
+        this.toast(h.action.text);
+        this.cb.onExamine?.(h.id, h.action.text);
+        break;
+      case 'pickup':
+        this.cb.onAction({ type: 'pickup', itemId: h.action.itemId });
+        break;
+      case 'openPuzzle':
+        this.openPuzzle(h.action.puzzleId);
+        break;
     }
   }
 
@@ -63,43 +76,38 @@ export class Renderer {
 
   private onItemClick(id: string): void {
     if (this.selectedItem && this.selectedItem !== id) {
-      this.cb.onAction({ type: 'combine', itemA: this.selectedItem, itemB: id });
+      const first = this.selectedItem;
       this.selectedItem = null;
-    } else if (this.selectedItem === id) {
-      this.selectedItem = null;
+      this.cb.onAction({ type: 'combine', itemA: first, itemB: id });
     } else {
-      this.selectedItem = id;
+      this.selectedItem = this.selectedItem === id ? null : id;
+      this.renderInventory(this.state);
     }
   }
 
   private openPuzzle(puzzleId: string): void {
-    const modal = document.getElementById('modal')!;
-    const box = document.getElementById('modal-box')!;
-    box.innerHTML = `
-      <p>暗証番号を入力</p>
-      <input id="code-input" inputmode="numeric" autocomplete="off" />
-      <div><button id="code-ok">決定</button><button id="code-cancel">閉じる</button></div>`;
-    modal.classList.add('show');
-    const close = () => modal.classList.remove('show');
-    box.querySelector<HTMLButtonElement>('#code-cancel')!.onclick = close;
-    box.querySelector<HTMLButtonElement>('#code-ok')!.onclick = () => {
-      const answer = box.querySelector<HTMLInputElement>('#code-input')!.value;
-      const effects = this.cb.onAction({ type: 'solvePuzzle', puzzleId, answer });
-      if (!effects.some((e) => e.type === 'error')) close();
-    };
+    const puzzle = this.scene.puzzles[puzzleId];
+    if (!puzzle) return;
+    openKeypad({
+      digits: puzzle.solution.length,
+      onSubmit: (value) => {
+        const effects = this.cb.onAction({ type: 'solvePuzzle', puzzleId, answer: value });
+        return !effects.some((e) => e.type === 'error');
+      },
+    });
   }
 
   handleEffects(effects: GameEffect[]): void {
     for (const e of effects) {
       if (e.type === 'message' || e.type === 'error') this.toast(e.text);
-      if (e.type === 'won') this.toast('🎉 脱出成功！クリア！');
+      if (e.type === 'won') this.toast('🎉 脱出成功！クリア！', true);
     }
   }
 
-  private toast(text: string): void {
+  private toast(text: string, win = false): void {
     const t = document.getElementById('toast')!;
     t.textContent = text;
-    t.classList.add('show');
-    setTimeout(() => t.classList.remove('show'), 2200);
+    t.className = win ? 'show win' : 'show';
+    setTimeout(() => t.classList.remove('show'), win ? 3200 : 2200);
   }
 }

@@ -2,12 +2,15 @@ import { chapter1 } from './data/chapter1';
 import { createInitialState, applyAction } from './engine/gameEngine';
 import { loadGame, saveGame } from './engine/save';
 import { Renderer } from './render/renderer';
+import { Tutorial } from './render/tutorial';
 import type { GameState, GameAction, GameEffect } from './engine/types';
 
 const scene = chapter1;
 const loaded = loadGame(window.localStorage);
 let state: GameState =
   loaded && scene.nodes[loaded.currentNodeId] ? loaded : createInitialState(scene);
+
+const tutorial = new Tutorial();
 
 const renderer = new Renderer(scene, {
   onAction: (action: GameAction): GameEffect[] => {
@@ -16,8 +19,13 @@ const renderer = new Renderer(scene, {
     saveGame(state, window.localStorage);
     renderer.handleEffects(result.effects);
     renderer.render(state);
+    tutorial.notify({ kind: 'action', state });
     return result.effects;
+  },
+  onExamine: () => {
+    tutorial.notify({ kind: 'examine', state });
   },
 });
 
 renderer.render(state);
+tutorial.refresh(state);

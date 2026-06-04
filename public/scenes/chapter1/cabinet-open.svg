@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 1280" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="room" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0a111c"/><stop offset="0.55" stop-color="#0c1521"/><stop offset="1" stop-color="#04070d"/>
+    </linearGradient>
+    <radialGradient id="amber" cx="0.5" cy="0.4" r="0.7">
+      <stop offset="0" stop-color="#ffb24d" stop-opacity="0.35"/><stop offset="0.5" stop-color="#ff8a2b" stop-opacity="0.08"/><stop offset="1" stop-color="#ff8a2b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="vig" cx="0.5" cy="0.46" r="0.72">
+      <stop offset="0.4" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="0.82"/>
+    </radialGradient>
+    <linearGradient id="metal" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#33485f"/><stop offset="0.5" stop-color="#1c2c3e"/><stop offset="1" stop-color="#2b4057"/>
+    </linearGradient>
+    <radialGradient id="paper" cx="0.5" cy="0.35" r="0.9">
+      <stop offset="0" stop-color="#fff0c2"/><stop offset="1" stop-color="#e6bd5e"/>
+    </radialGradient>
+    <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope="0.05"/></feComponentTransfer></filter>
+  </defs>
+
+  <rect width="720" height="1280" fill="url(#room)"/>
+  <rect width="720" height="1280" fill="url(#amber)"/>
+
+  <!-- left back hint -->
+  <rect x="14" y="450" width="120" height="520" rx="4" fill="#10202c" stroke="#26485a" stroke-width="2"/>
+  <polygon points="92,612 70,634 92,656" fill="#4fd0e0" opacity="0.75"/>
+  <text x="74" y="700" font-family="Chakra Petch, sans-serif" font-size="16" fill="#4fd0e0" opacity="0.7" text-anchor="middle">BACK</text>
+
+  <!-- open locker frame -->
+  <rect x="180" y="280" width="356" height="740" rx="10" fill="#0a131d" stroke="#42607f" stroke-width="3"/>
+  <rect x="200" y="300" width="316" height="700" rx="6" fill="#060d15"/>
+  <!-- open door swung -->
+  <polygon points="180,300 90,360 90,980 180,1000" fill="url(#metal)" stroke="#42607f" stroke-width="2" opacity="0.9"/>
+  <!-- shelves -->
+  <rect x="200" y="500" width="316" height="10" fill="#1a2a3b"/>
+  <rect x="200" y="740" width="316" height="10" fill="#1a2a3b"/>
+
+  <!-- note half A (left, pickup) -->
+  <g transform="rotate(-7 273 583)">
+    <polygon points="216,520 332,520 326,646 222,640" fill="url(#paper)"/>
+    <line x1="244" y1="556" x2="316" y2="556" stroke="#9a7b2e" stroke-width="4" stroke-linecap="round"/>
+    <line x1="244" y1="584" x2="300" y2="584" stroke="#9a7b2e" stroke-width="4" stroke-linecap="round"/>
+    <polygon points="326,520 332,540 318,560 332,582 322,604 332,624 326,646" fill="#d9b35a"/>
+  </g>
+  <!-- note half B (right, pickup) -->
+  <g transform="rotate(6 450 583)">
+    <polygon points="396,520 504,524 504,640 402,646" fill="url(#paper)"/>
+    <line x1="420" y1="556" x2="486" y2="556" stroke="#9a7b2e" stroke-width="4" stroke-linecap="round"/>
+    <line x1="420" y1="584" x2="472" y2="584" stroke="#9a7b2e" stroke-width="4" stroke-linecap="round"/>
+    <polygon points="396,520 404,540 392,560 404,582 396,604 404,624 396,646" fill="#d9b35a"/>
+  </g>
+
+  <rect width="720" height="1280" fill="url(#vig)"/>
+  <rect width="720" height="1280" filter="url(#grain)" opacity="0.5"/>
+</svg>
