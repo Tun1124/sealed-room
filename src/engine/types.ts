@@ -57,10 +57,28 @@ export interface ItemData {
   description: string;
 }
 
+export interface PuzzleOption {
+  /** 表示色（必須）。 */
+  color: string;
+  /** 任意の見出し（例: 数字や記号）。 */
+  label?: string;
+}
+
 export interface PuzzleData {
   id: string;
-  type: 'code';
+  /**
+   * code   = 数字キーパッド（solution は数字列）
+   * pattern= 3x3 などの点をなぞるパターン錠（solution は通過点インデックス列, 例 "0124678"）
+   * colors = 色を順に押す錠（solution は options へのインデックス列, 例 "2031"）
+   */
+  type: 'code' | 'pattern' | 'colors';
   solution: string;
+  /** colors 用：押せる色の一覧（表示順）。solution はこの並びのインデックス。 */
+  options?: PuzzleOption[];
+  /** pattern 用：グリッドの一辺（既定 3）。 */
+  gridSize?: number;
+  /** 入力UIの見出し。 */
+  title?: string;
   onSolve: SolveEffect;
 }
 

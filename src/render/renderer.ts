@@ -1,6 +1,8 @@
 import type { SceneData, GameState, GameAction, GameEffect, Hotspot } from '../engine/types';
 import { isHotspotActive } from '../engine/gameEngine';
 import { openKeypad } from './keypad';
+import { openPatternLock } from './patternLock';
+import { openColorLock } from './colorLock';
 
 export interface RendererCallbacks {
   onAction: (action: GameAction) => GameEffect[];
@@ -117,13 +119,17 @@ export class Renderer {
   private openPuzzle(puzzleId: string): void {
     const puzzle = this.scene.puzzles[puzzleId];
     if (!puzzle) return;
-    openKeypad({
-      digits: puzzle.solution.length,
-      onSubmit: (value) => {
-        const effects = this.cb.onAction({ type: 'solvePuzzle', puzzleId, answer: value });
-        return !effects.some((e) => e.type === 'error');
-      },
-    });
+    const onSubmit = (value: string): boolean => {
+      const effects = this.cb.onAction({ type: 'solvePuzzle', puzzleId, answer: value });
+      return !effects.some((e) => e.type === 'error');
+    };
+    if (puzzle.type === 'pattern') {
+      openPatternLock({ gridSize: puzzle.gridSize ?? 3, title: puzzle.title, onSubmit });
+    } else if (puzzle.type === 'colors') {
+      openColorLock({ options: puzzle.options ?? [], length: puzzle.solution.length, title: puzzle.title, onSubmit });
+    } else {
+      openKeypad({ digits: puzzle.solution.length, title: puzzle.title, onSubmit });
+    }
   }
 
   handleEffects(effects: GameEffect[]): void {

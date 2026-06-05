@@ -57,14 +57,14 @@
   <g fill="url(#brass)">
     <circle cx="272" cy="712" r="5"/><circle cx="452" cy="712" r="5"/><circle cx="272" cy="936" r="5"/><circle cx="452" cy="936" r="5"/>
   </g>
-  <!-- keypad lock on the front -->
-  <rect x="322" y="792" width="80" height="118" rx="10" fill="#222a32" stroke="#3a444e" stroke-width="2"/>
-  <rect x="332" y="802" width="60" height="22" rx="4" fill="#0c252e"/>
-  <text x="362" y="819" font-family="Chakra Petch, monospace" font-size="13" fill="#5fd6e6" text-anchor="middle" letter-spacing="4">----</text>
-  <g fill="#cfd4da">
-    <circle cx="344" cy="846" r="5"/><circle cx="362" cy="846" r="5"/><circle cx="380" cy="846" r="5"/>
-    <circle cx="344" cy="868" r="5"/><circle cx="362" cy="868" r="5"/><circle cx="380" cy="868" r="5"/>
-    <circle cx="344" cy="890" r="5"/><circle cx="362" cy="890" r="5"/><circle cx="380" cy="890" r="5"/>
+  <!-- pattern lock on the front (Android-style) -->
+  <rect x="316" y="786" width="92" height="122" rx="12" fill="#1b2630" stroke="#3a444e" stroke-width="2"/>
+  <rect x="316" y="786" width="92" height="122" rx="12" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+  <text x="362" y="806" font-family="Chakra Petch, sans-serif" font-size="9" fill="#5fd6e6" text-anchor="middle" letter-spacing="3">PATTERN</text>
+  <g fill="#0c252e" stroke="#5a7a86" stroke-width="2">
+    <circle cx="340" cy="834" r="6.5"/><circle cx="362" cy="834" r="6.5"/><circle cx="384" cy="834" r="6.5"/>
+    <circle cx="340" cy="862" r="6.5"/><circle cx="362" cy="862" r="6.5"/><circle cx="384" cy="862" r="6.5"/>
+    <circle cx="340" cy="890" r="6.5"/><circle cx="362" cy="890" r="6.5"/><circle cx="384" cy="890" r="6.5"/>
   </g>
 
   <rect width="720" height="1280" fill="url(#vignette)"/>

@@ -20,12 +20,12 @@ export const chapter2: SceneData = {
   items: {
     lighter: { id: 'lighter', name: 'ライター', icon: '🔥', description: '古いオイルライター。何かを炙れそうだ。' },
     blankLetter: { id: 'blankLetter', name: '古い便箋', icon: '📃', description: '一見、何も書かれていない。' },
-    revealedLetter: { id: 'revealedLetter', name: '炙り出した便箋', icon: '🧾', description: '炎で「7294」が浮かび上がった。' },
+    revealedLetter: { id: 'revealedLetter', name: '炙り出した便箋', icon: '🧾', description: '焦げ跡で「Z」の図形が浮かんだ。' },
     brassKey: { id: 'brassKey', name: '真鍮の鍵', icon: '🗝️', description: '屋根裏のハッチに合いそうだ。' },
     crank: { id: 'crank', name: '鉄のクランク', icon: '🔧', description: '何かの軸を回す道具。本棚に使えそうだ。' },
     letterA: { id: 'letterA', name: '手紙の上半分', icon: '📄', description: '「結ばれた…」' },
     letterB: { id: 'letterB', name: '手紙の下半分', icon: '📄', description: '「…年に立ち返れ」' },
-    fullLetter: { id: 'fullLetter', name: '復元した手紙', icon: '📝', description: '結ばれた年に立ち返れ ＝ 1962' },
+    fullLetter: { id: 'fullLetter', name: '復元した手紙', icon: '📝', description: '金庫の色は 青→赤→黄→緑 の順。' },
     will: { id: 'will', name: '遺言状', icon: '📜', description: '玄関の番号: 3725' },
   },
   puzzles: {
@@ -38,12 +38,21 @@ export const chapter2: SceneData = {
       id: 'clockLock', type: 'code', solution: '0418',
       onSolve: { giveItems: ['brassKey'], message: '時計の文字盤が外れ、真鍮の鍵が出てきた。' },
     },
+    // パターン錠（Android解除風）。Z の形＝0-1-2-4-6-7-8
     trunkLock: {
-      id: 'trunkLock', type: 'code', solution: '7294',
+      id: 'trunkLock', type: 'pattern', gridSize: 3, solution: '0124678', title: 'TRUNK — パターン',
       onSolve: { giveItems: ['crank', 'letterA'], message: 'トランクが開いた。クランクと手紙の上半分を手に入れた。' },
     },
+    // カラー順序錠。青→赤→黄→緑 ＝ options[1,0,2,3]
     safeLock: {
-      id: 'safeLock', type: 'code', solution: '1962',
+      id: 'safeLock', type: 'colors', solution: '1023', title: 'SAFE — 色の順',
+      options: [
+        { color: '#d6453c' }, // 0 赤
+        { color: '#3a73d6' }, // 1 青
+        { color: '#e8c33a' }, // 2 黄
+        { color: '#46b97a' }, // 3 緑
+        { color: '#8a5fbf' }, // 4 紫
+      ],
       onSolve: { setFlags: ['safeOpen'], giveItems: ['will'],
         message: '金庫が開いた。遺言状が出てきた ― 玄関の番号は「3725」。' },
     },
@@ -53,8 +62,8 @@ export const chapter2: SceneData = {
     },
   },
   combinations: [
-    { inputs: ['lighter', 'blankLetter'], output: 'revealedLetter', message: '便箋を炙ると「7294」の数字が浮かび上がった！' },
-    { inputs: ['letterA', 'letterB'], output: 'fullLetter', message: '手紙がつながった。「結ばれた年に立ち返れ」' },
+    { inputs: ['lighter', 'blankLetter'], output: 'revealedLetter', message: '便箋を炙ると焦げ跡が浮かんだ ― 点を「Z」の形になぞれ！' },
+    { inputs: ['letterA', 'letterB'], output: 'fullLetter', message: '手紙がつながった ― 金庫の色は「青→赤→黄→緑」の順。' },
   ],
   nodes: {
     study: {
