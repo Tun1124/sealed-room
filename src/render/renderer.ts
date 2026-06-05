@@ -34,6 +34,7 @@ export class Renderer {
   private hotspotEl(h: Hotspot): HTMLElement {
     const el = document.createElement('div');
     el.className = 'hotspot';
+    el.dataset.id = h.id;
     el.style.left = `${h.area.x}%`;
     el.style.top = `${h.area.y}%`;
     el.style.width = `${h.area.width}%`;
@@ -43,6 +44,18 @@ export class Renderer {
   }
 
   private onHotspot(h: Hotspot): void {
+    // 「アイテムを選択して使う」ゲート: 指定アイテムが選択中でなければ実行不可
+    if (h.useItem) {
+      if (this.selectedItem !== h.useItem) {
+        const item = this.scene.items[h.useItem];
+        this.toast(`持ち物の${item ? item.name : 'アイテム'}を選んでから使おう。`);
+        return;
+      }
+      // 使用したら選択を解除（鍵自体は消費せず持ち物に残す）
+      this.selectedItem = null;
+      this.renderInventory(this.state);
+    }
+
     switch (h.action.type) {
       case 'navigate':
         this.cb.onAction({ type: 'navigate', targetNodeId: h.action.targetNodeId });

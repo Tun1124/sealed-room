@@ -42,7 +42,7 @@ export const chapter1: SceneData = {
       id: 'cabinet', image: 'scenes/chapter1/cabinet.svg',
       hotspots: [
         { id: 'open-cabinet', area: { x: 30, y: 30, width: 40, height: 40 },
-          requires: { hasItems: ['key'] },
+          requires: { hasItems: ['key'] }, useItem: 'key',
           action: { type: 'navigate', targetNodeId: 'cabinetOpen' } },
         { id: 'cabinet-back', area: { x: 3, y: 40, width: 15, height: 30 },
           action: { type: 'navigate', targetNodeId: 'desk' } },

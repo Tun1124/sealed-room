@@ -24,6 +24,12 @@ export interface Hotspot {
   action: HotspotAction;
   /** 満たさない間はホットスポットを非表示/無効化 */
   requires?: Requirement;
+  /**
+   * 設定すると、このアイテムを「持ち物で選択中」でなければアクションを実行できない。
+   * （例: 鍵を選んでからロッカーをタップして開ける）。選択はUIの一時状態なので
+   * エンジンの状態には持たせず、描画層でのみ判定する。
+   */
+  useItem?: string;
 }
 
 export interface Rect {

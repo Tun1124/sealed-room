@@ -22,7 +22,7 @@ const steps: Step[] = [
     complete: (s) => s.solvedPuzzles.includes('drawerLock') || s.inventory.includes('key'),
   },
   {
-    text: '鍵を手に入れた！右側のロッカーへ移動し、鍵で開けよう。',
+    text: '鍵を手に入れた！右のロッカーへ進み、持ち物の🔑をタップして選んでから、ロッカーをタップして開けよう。',
     complete: (s) =>
       s.currentNodeId === 'cabinetOpen' ||
       s.inventory.includes('noteA') || s.inventory.includes('noteB') ||
