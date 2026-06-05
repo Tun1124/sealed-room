@@ -24,14 +24,16 @@
       body { background:#03050a; color:var(--ink); font-family:var(--jp); overscroll-behavior:none; user-select:none; }
 
       /* ---------- screen switching ---------- */
-      #home, #chapters { display:none; }
+      #home, #chapters, #clear { display:none; }
       body[data-screen="home"] #home { display:block; }
       body[data-screen="chapters"] #chapters { display:flex; }
+      body[data-screen="clear"] #clear { display:flex; }
       body[data-screen="game"] #stage,
       body[data-screen="game"] #inventory,
       body[data-screen="game"] #coach,
+      body[data-screen="game"] #timer,
       body[data-screen="game"] #game-home { display:flex; }
-      #stage, #inventory, #coach, #game-home { display:none; }
+      #stage, #inventory, #coach, #game-home, #timer { display:none; }
 
       /* =========================================================
          GAME (stage / inventory / coach / keypad) — unchanged core
@@ -51,6 +53,13 @@
         50% { box-shadow:0 0 0 1px rgba(255,178,77,.42) inset, 0 0 18px rgba(255,178,77,.18); }
       }
       .hotspot.debug { outline:1px dashed rgba(255,255,0,.7); background:rgba(255,255,0,.08); }
+
+      /* in-game play timer HUD */
+      #timer { position:fixed; top:max(12px, env(safe-area-inset-top)); right:12px; z-index:50;
+        align-items:center; justify-content:center; min-width:74px; height:42px; padding:0 14px;
+        border:1px solid var(--line); border-radius:12px; background:rgba(8,16,24,.72);
+        color:var(--cyan); font-family:var(--display); font-weight:600; font-size:18px; letter-spacing:.08em;
+        backdrop-filter:blur(6px); font-variant-numeric:tabular-nums; }
 
       /* in-game home button */
       #game-home { position:fixed; top:max(12px, env(safe-area-inset-top)); left:12px; z-index:50;
@@ -233,6 +242,60 @@
       .cs-card--locked { cursor:default; opacity:.5; filter:grayscale(.4); }
       .cs-card--locked::after { content:""; position:absolute; inset:0;
         background:repeating-linear-gradient(45deg, transparent 0 9px, rgba(255,255,255,.018) 9px 18px); pointer-events:none; }
+
+      /* =========================================================
+         CHAPTER CLEAR
+         ========================================================= */
+      #clear { position:fixed; inset:0; overflow:hidden; flex-direction:column;
+        align-items:center; justify-content:center;
+        background:radial-gradient(120% 80% at 50% 8%, #11241c 0%, #0a130e 46%, #05080a 100%); }
+      .cl-glow { position:absolute; top:-18%; left:50%; width:90%; height:70%; transform:translateX(-50%);
+        background:radial-gradient(ellipse 60% 56% at 50% 0%, rgba(72,227,154,.22), rgba(72,227,154,.06) 48%, transparent 72%);
+        filter:blur(22px); pointer-events:none; }
+      .cl-grain { position:absolute; inset:0; pointer-events:none; opacity:.05; mix-blend-mode:overlay;
+        background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+
+      .cl-inner { position:relative; z-index:2; width:100%; max-width:56.25vh; padding:32px 30px;
+        display:flex; flex-direction:column; align-items:center; text-align:center; }
+      .cl-eyebrow { font-family:var(--display); font-size:11px; letter-spacing:.4em; color:var(--green);
+        text-transform:uppercase; opacity:0; animation:rise .7s ease .1s forwards; }
+      .cl-title { font-family:var(--mincho); font-weight:800; font-size:clamp(52px, 17vw, 96px);
+        line-height:1.12; padding:.06em .04em .1em; margin-top:8px; white-space:nowrap;
+        background:linear-gradient(180deg,#eafff5 0%,#aef0cf 48%,#3fbf86 100%);
+        -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+        filter:drop-shadow(0 6px 28px rgba(72,227,154,.28));
+        opacity:0; animation:logoIn .9s cubic-bezier(.2,.7,.2,1) .25s forwards; }
+      .cl-sub { margin-top:6px; font-size:15px; letter-spacing:.16em; color:#cfe6da;
+        opacity:0; animation:rise .7s ease .45s forwards; }
+
+      .cl-time { margin:30px 0 26px; display:flex; flex-direction:column; align-items:center; gap:6px;
+        padding:18px 40px; border:1px solid rgba(72,227,154,.32); border-radius:16px;
+        background:linear-gradient(180deg, rgba(16,38,28,.7), rgba(8,18,13,.7));
+        box-shadow:0 0 0 1px rgba(72,227,154,.08) inset, 0 14px 40px rgba(72,227,154,.1);
+        opacity:0; animation:rise .7s ease .6s forwards; }
+      .cl-time__label { font-family:var(--display); font-size:11px; letter-spacing:.3em; color:#6fae90; text-transform:uppercase; }
+      .cl-time__value { font-family:var(--display); font-weight:700; font-size:46px; letter-spacing:.04em;
+        color:#eafff5; text-shadow:0 0 22px rgba(72,227,154,.45); font-variant-numeric:tabular-nums; }
+      .cl-record { margin-top:4px; font-family:var(--display); font-size:12px; letter-spacing:.16em;
+        color:#ffd86b; text-shadow:0 0 14px rgba(255,200,80,.5); }
+      .cl-best { margin-top:4px; font-family:var(--display); font-size:11px; letter-spacing:.22em; color:#6fae90; }
+
+      .cl-actions { width:100%; display:flex; flex-direction:column; gap:10px;
+        opacity:0; animation:rise .7s ease .78s forwards; }
+      .cl-btn { width:100%; padding:15px 18px; border-radius:13px; cursor:pointer; color:var(--ink);
+        font-size:16px; font-weight:700; letter-spacing:.04em; border:1px solid var(--line);
+        background:linear-gradient(180deg, rgba(20,32,46,.9), rgba(10,16,24,.92));
+        transition:transform .1s, box-shadow .15s, border-color .15s; }
+      .cl-btn:active { transform:scale(.985); }
+      .cl-btn--primary { border-color:rgba(72,227,154,.6); color:#063;
+        background:linear-gradient(180deg, #6ef0b0, #38c98a);
+        box-shadow:0 10px 30px rgba(72,227,154,.28); }
+      .cl-btn--next { border-color:rgba(255,157,60,.5); color:var(--amber-soft); line-height:1.3; }
+      .cl-btn--next small { font-family:var(--display); font-size:11px; letter-spacing:.14em; color:#c98a45; font-weight:500; }
+      .cl-row { display:flex; gap:10px; }
+      .cl-row .cl-btn { flex:1; }
+      .cl-btn--ghost { background:rgba(13,22,32,.6); color:var(--muted); font-weight:600; font-size:14px; }
+      .cl-share-note { margin-top:14px; font-family:var(--display); font-size:12px; letter-spacing:.12em; color:var(--green); }
     </style>
   </head>
   <body data-screen="home">
@@ -242,7 +305,11 @@
     <!-- chapter select -->
     <section id="chapters"></section>
 
+    <!-- chapter clear -->
+    <section id="clear"></section>
+
     <!-- game -->
+    <div id="timer">0:00</div>
     <button id="game-home" type="button" aria-label="チャプター選択へ戻る">‹</button>
     <div id="stage"></div>
     <div id="inventory"></div>

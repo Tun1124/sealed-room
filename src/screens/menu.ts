@@ -1,20 +1,18 @@
 import type { StorageAdapter } from '../engine/save';
-import { getLastChapter, loadChapter } from '../engine/save';
+import { getLastChapter, loadChapter, isChapterCleared } from '../engine/save';
 import { chapters, getChapter } from '../data/chapters';
 import type { ChapterMeta } from '../data/chapters';
 
-export type ScreenName = 'home' | 'chapters' | 'game';
+export type ScreenName = 'home' | 'chapters' | 'game' | 'clear';
 
 export interface MenuCallbacks {
   /** チャプターを開始（セーブがあれば自動で続きから）。 */
   onPlay: (id: string) => void;
 }
 
-/** チャプターがクリア済みか（セーブの winFlag を確認）。 */
+/** チャプターがクリア済みか（恒久記録。やり直しても残る）。 */
 function isCleared(ch: ChapterMeta, storage: StorageAdapter): boolean {
-  if (!ch.scene?.winFlag) return false;
-  const save = loadChapter(ch.id, storage);
-  return !!save?.flags[ch.scene.winFlag];
+  return isChapterCleared(ch.id, storage);
 }
 
 /** チャプターに途中セーブがあるか。 */

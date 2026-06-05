@@ -74,3 +74,39 @@ export function clearChapter(chapterId: string, storage: StorageAdapter): void {
 export function getLastChapter(storage: StorageAdapter): string | null {
   return storage.getItem(LAST_KEY);
 }
+
+/* ---- クリア実績＆ベストタイム（やり直しても残る恒久記録） ---- */
+
+const CLEARED_KEY = 'escape-pv:cleared';
+
+function readCleared(storage: StorageAdapter): Record<string, number> {
+  try {
+    return JSON.parse(storage.getItem(CLEARED_KEY) ?? '{}') as Record<string, number>;
+  } catch {
+    return {};
+  }
+}
+
+/** クリアを記録し、ベストタイムを更新する。新記録だったかを返す。 */
+export function markCleared(
+  chapterId: string,
+  elapsedMs: number,
+  storage: StorageAdapter,
+): { best: number; isNewRecord: boolean } {
+  const map = readCleared(storage);
+  const prev = map[chapterId];
+  const isNewRecord = prev == null || elapsedMs < prev;
+  const best = isNewRecord ? elapsedMs : prev;
+  map[chapterId] = best;
+  storage.setItem(CLEARED_KEY, JSON.stringify(map));
+  return { best, isNewRecord };
+}
+
+export function isChapterCleared(chapterId: string, storage: StorageAdapter): boolean {
+  return readCleared(storage)[chapterId] != null;
+}
+
+export function getBestTime(chapterId: string, storage: StorageAdapter): number | null {
+  const v = readCleared(storage)[chapterId];
+  return v == null ? null : v;
+}
