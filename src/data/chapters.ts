@@ -1,5 +1,6 @@
 import type { SceneData } from '../engine/types';
 import { chapter1 } from './chapter1';
+import { chapter2 } from './chapter2';
 
 /**
  * チャプター一覧（タイトル画面 / チャプター選択で使用）。
@@ -39,10 +40,10 @@ export const chapters: ChapterMeta[] = [
     id: 'chapter2',
     kind: 'main',
     no: '01',
-    title: '???',
-    subtitle: '近日公開',
-    duration: '—',
-    locked: true,
+    title: '祖父の書斎',
+    subtitle: '遺言と隠し金庫の謎を解く。',
+    duration: '約30分',
+    scene: chapter2,
   },
   {
     id: 'chapter3',

@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 1280" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="wallV" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#efe7da"/><stop offset="0.62" stop-color="#e3d8c5"/><stop offset="1" stop-color="#d3c6ad"/>
+    </linearGradient>
+    <radialGradient id="topLight" cx="0.5" cy="0.05" r="0.85">
+      <stop offset="0" stop-color="#fff7e8" stop-opacity="0.5"/><stop offset="1" stop-color="#fff7e8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="vignette" cx="0.5" cy="0.46" r="0.75">
+      <stop offset="0.52" stop-color="#241a10" stop-opacity="0"/><stop offset="1" stop-color="#241a10" stop-opacity="0.36"/>
+    </radialGradient>
+    <linearGradient id="floorW" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#b6976a"/><stop offset="1" stop-color="#977853"/>
+    </linearGradient>
+    <radialGradient id="contact" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#241a10" stop-opacity="0.34"/><stop offset="1" stop-color="#241a10" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="doorwood" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#8a6238"/><stop offset="0.5" stop-color="#74502c"/><stop offset="1" stop-color="#825a32"/>
+    </linearGradient>
+    <linearGradient id="frame" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#d8c8af"/><stop offset="1" stop-color="#c2b094"/>
+    </linearGradient>
+    <linearGradient id="brass" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f0d99a"/><stop offset="0.5" stop-color="#c9a44f"/><stop offset="1" stop-color="#e6c87f"/>
+    </linearGradient>
+    <radialGradient id="glass" cx="0.5" cy="0.3" r="0.8">
+      <stop offset="0" stop-color="#cfe0e8"/><stop offset="1" stop-color="#9fb6c2"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="720" height="1280" fill="url(#wallV)"/>
+  <rect width="720" height="1280" fill="url(#topLight)"/>
+  <rect x="0" y="912" width="720" height="8" fill="#7c6038" opacity="0.7"/>
+  <polygon points="0,920 720,920 720,1280 0,1280" fill="url(#floorW)"/>
+  <rect width="720" height="1280" fill="url(#vignette)"/>
+
+  <!-- back arrow (to study, on the right) -->
+  <g stroke="#5a4730" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.6">
+    <polyline points="662,628 688,660 662,692"/>
+  </g>
+
+  <!-- entrance door -->
+  <ellipse cx="360" cy="952" rx="210" ry="34" fill="url(#contact)"/>
+  <rect x="150" y="150" width="420" height="800" rx="6" fill="url(#frame)" stroke="#b3a184" stroke-width="3"/>
+  <rect x="176" y="172" width="368" height="778" rx="4" fill="url(#doorwood)" stroke="#5f3f22" stroke-width="3"/>
+  <!-- fanlight glass over the door -->
+  <rect x="200" y="196" width="320" height="92" rx="6" fill="url(#glass)" stroke="#5f3f22" stroke-width="2"/>
+  <g stroke="#5f3f22" stroke-width="3"><line x1="360" y1="196" x2="360" y2="288"/><line x1="280" y1="196" x2="280" y2="288"/><line x1="440" y1="196" x2="440" y2="288"/></g>
+  <!-- recessed panels -->
+  <rect x="210" y="330" width="300" height="200" rx="6" fill="#00000018" stroke="#5f3f22" stroke-width="2"/>
+  <rect x="210" y="700" width="300" height="210" rx="6" fill="#00000018" stroke="#5f3f22" stroke-width="2"/>
+  <!-- big brass knob -->
+  <circle cx="492" cy="600" r="16" fill="url(#brass)" stroke="#a8842f" stroke-width="2"/>
+
+  <!-- wall keypad lock (final code) -->
+  <ellipse cx="300" cy="700" rx="62" ry="120" fill="#000000" opacity="0.05"/>
+  <rect x="288" y="556" width="112" height="222" rx="14" fill="#222a32" stroke="#3a444e" stroke-width="2"/>
+  <rect x="288" y="556" width="112" height="222" rx="14" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+  <rect x="302" y="570" width="84" height="26" rx="4" fill="#0c252e"/>
+  <text x="344" y="590" font-family="Chakra Petch, monospace" font-size="16" fill="#5fd6e6" text-anchor="middle" letter-spacing="5">----</text>
+  <g font-family="Chakra Petch, sans-serif" font-size="17" fill="#e2e6ea" text-anchor="middle">
+    <g fill="#39434e">
+      <rect x="306" y="610" width="24" height="24" rx="5"/><rect x="332" y="610" width="24" height="24" rx="5"/><rect x="358" y="610" width="24" height="24" rx="5"/>
+      <rect x="306" y="640" width="24" height="24" rx="5"/><rect x="332" y="640" width="24" height="24" rx="5"/><rect x="358" y="640" width="24" height="24" rx="5"/>
+      <rect x="306" y="670" width="24" height="24" rx="5"/><rect x="332" y="670" width="24" height="24" rx="5"/><rect x="358" y="670" width="24" height="24" rx="5"/>
+      <rect x="332" y="700" width="24" height="24" rx="5"/>
+    </g>
+    <text x="318" y="627">1</text><text x="344" y="627">2</text><text x="370" y="627">3</text>
+    <text x="318" y="657">4</text><text x="344" y="657">5</text><text x="370" y="657">6</text>
+    <text x="318" y="687">7</text><text x="344" y="687">8</text><text x="370" y="687">9</text>
+    <text x="344" y="717">0</text>
+  </g>
+</svg>

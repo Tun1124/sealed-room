@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 1280" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="atticWall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3a2c1c"/><stop offset="1" stop-color="#241a10"/>
+    </linearGradient>
+    <radialGradient id="lamp" cx="0.5" cy="0.08" r="0.7">
+      <stop offset="0" stop-color="#ffd98a" stop-opacity="0.5"/><stop offset="1" stop-color="#ffd98a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="vignette" cx="0.5" cy="0.46" r="0.72">
+      <stop offset="0.4" stop-color="#000000" stop-opacity="0"/><stop offset="1" stop-color="#000000" stop-opacity="0.5"/>
+    </radialGradient>
+    <linearGradient id="floorW" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#6f4c2a"/><stop offset="1" stop-color="#523818"/>
+    </linearGradient>
+    <radialGradient id="contact" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#000000" stop-opacity="0.4"/><stop offset="1" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="trunkBody" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8a5e34"/><stop offset="1" stop-color="#674427"/>
+    </linearGradient>
+    <linearGradient id="trunkLid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9c6f3f"/><stop offset="1" stop-color="#7c5530"/>
+    </linearGradient>
+    <linearGradient id="brass" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f0d99a"/><stop offset="0.5" stop-color="#c9a44f"/><stop offset="1" stop-color="#e6c87f"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="720" height="1280" fill="url(#atticWall)"/>
+  <!-- sloped roof beams -->
+  <g stroke="#4e3a24" stroke-width="14" opacity="0.8">
+    <line x1="0" y1="120" x2="360" y2="0"/><line x1="720" y1="120" x2="360" y2="0"/>
+    <line x1="0" y1="360" x2="360" y2="200"/><line x1="720" y1="360" x2="360" y2="200"/>
+  </g>
+  <line x1="360" y1="0" x2="360" y2="560" stroke="#3a2a18" stroke-width="10" opacity="0.7"/>
+  <rect width="720" height="1280" fill="url(#lamp)"/>
+
+  <!-- floor -->
+  <rect x="0" y="900" width="720" height="380" fill="url(#floorW)"/>
+  <g stroke="#3f2c18" stroke-width="3" opacity="0.5">
+    <line x1="0" y1="980" x2="720" y2="980"/><line x1="0" y1="1080" x2="720" y2="1080"/><line x1="0" y1="1190" x2="720" y2="1190"/>
+  </g>
+
+  <!-- back arrow (hatch down) -->
+  <g stroke="#d8c7a6" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.7">
+    <polyline points="58,628 32,660 58,692"/>
+  </g>
+
+  <!-- old trunk with code lock -->
+  <ellipse cx="362" cy="956" rx="190" ry="34" fill="url(#contact)"/>
+  <rect x="216" y="700" width="292" height="244" rx="10" fill="url(#trunkBody)" stroke="#4e3320" stroke-width="3"/>
+  <path d="M216 720 q146 -60 292 0 v18 h-292 z" fill="url(#trunkLid)" stroke="#4e3320" stroke-width="3"/>
+  <!-- straps -->
+  <rect x="262" y="700" width="20" height="244" fill="#4e3320"/>
+  <rect x="442" y="700" width="20" height="244" fill="#4e3320"/>
+  <rect x="262" y="700" width="20" height="244" fill="#5e3f26" opacity="0.5"/>
+  <g fill="url(#brass)">
+    <circle cx="272" cy="712" r="5"/><circle cx="452" cy="712" r="5"/><circle cx="272" cy="936" r="5"/><circle cx="452" cy="936" r="5"/>
+  </g>
+  <!-- keypad lock on the front -->
+  <rect x="322" y="792" width="80" height="118" rx="10" fill="#222a32" stroke="#3a444e" stroke-width="2"/>
+  <rect x="332" y="802" width="60" height="22" rx="4" fill="#0c252e"/>
+  <text x="362" y="819" font-family="Chakra Petch, monospace" font-size="13" fill="#5fd6e6" text-anchor="middle" letter-spacing="4">----</text>
+  <g fill="#cfd4da">
+    <circle cx="344" cy="846" r="5"/><circle cx="362" cy="846" r="5"/><circle cx="380" cy="846" r="5"/>
+    <circle cx="344" cy="868" r="5"/><circle cx="362" cy="868" r="5"/><circle cx="380" cy="868" r="5"/>
+    <circle cx="344" cy="890" r="5"/><circle cx="362" cy="890" r="5"/><circle cx="380" cy="890" r="5"/>
+  </g>
+
+  <rect width="720" height="1280" fill="url(#vignette)"/>
+</svg>
