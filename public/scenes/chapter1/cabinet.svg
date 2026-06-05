@@ -1,73 +1,97 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 1280" preserveAspectRatio="xMidYMid slice">
   <defs>
-    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#e9edf1"/><stop offset="1" stop-color="#d2d9e0"/>
+    <linearGradient id="wallV" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f2f4f7"/><stop offset="0.62" stop-color="#e2e7ed"/><stop offset="1" stop-color="#d3d9e1"/>
     </linearGradient>
-    <radialGradient id="roomlight" cx="0.5" cy="0.12" r="0.7">
-      <stop offset="0" stop-color="#ffffff" stop-opacity="0.5"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    <linearGradient id="cornerShade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#aeb7c2" stop-opacity="0.55"/><stop offset="0.22" stop-color="#aeb7c2" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="cornerShadeR" x1="1" y1="0" x2="0" y2="0">
+      <stop offset="0" stop-color="#aeb7c2" stop-opacity="0.4"/><stop offset="0.2" stop-color="#aeb7c2" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="topLight" cx="0.5" cy="0.04" r="0.85">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.65"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
     </radialGradient>
-    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#d9c19c"/><stop offset="1" stop-color="#c2a479"/>
+    <radialGradient id="vignette" cx="0.5" cy="0.44" r="0.74">
+      <stop offset="0.55" stop-color="#1b2430" stop-opacity="0"/><stop offset="1" stop-color="#1b2430" stop-opacity="0.30"/>
+    </radialGradient>
+    <linearGradient id="floorV" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#cdd3da"/><stop offset="1" stop-color="#b3bac3"/>
     </linearGradient>
+    <radialGradient id="floorGlow" cx="0.5" cy="0.0" r="0.9">
+      <stop offset="0" stop-color="#e6eaef" stop-opacity="0.7"/><stop offset="1" stop-color="#e6eaef" stop-opacity="0"/>
+    </radialGradient>
     <radialGradient id="contact" cx="0.5" cy="0.5" r="0.5">
-      <stop offset="0" stop-color="#5a4a32" stop-opacity="0.4"/><stop offset="1" stop-color="#5a4a32" stop-opacity="0"/>
+      <stop offset="0" stop-color="#3b424c" stop-opacity="0.34"/><stop offset="1" stop-color="#3b424c" stop-opacity="0"/>
     </radialGradient>
     <linearGradient id="metalFace" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#d6dbe1"/><stop offset="0.5" stop-color="#bcc3cb"/><stop offset="1" stop-color="#cdd3d9"/>
+      <stop offset="0" stop-color="#e7ebef"/><stop offset="0.5" stop-color="#c8ced6"/><stop offset="1" stop-color="#dde2e8"/>
     </linearGradient>
     <linearGradient id="metalSide" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#9aa2ab"/><stop offset="1" stop-color="#838c96"/>
+      <stop offset="0" stop-color="#a7afb9"/><stop offset="1" stop-color="#9299a3"/>
+    </linearGradient>
+    <linearGradient id="doorFace" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#dfe4ea"/><stop offset="1" stop-color="#cad0d8"/>
     </linearGradient>
     <linearGradient id="handle" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#e4e8ec"/><stop offset="0.5" stop-color="#a7afb8"/><stop offset="1" stop-color="#cfd5db"/>
+      <stop offset="0" stop-color="#eef1f4"/><stop offset="0.5" stop-color="#a7afb8"/><stop offset="1" stop-color="#d0d6dc"/>
     </linearGradient>
     <linearGradient id="lockPlate" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#eef1f4"/><stop offset="0.5" stop-color="#aeb6bf"/><stop offset="1" stop-color="#cdd3da"/>
+      <stop offset="0" stop-color="#f1f3f6"/><stop offset="0.5" stop-color="#aeb6bf"/><stop offset="1" stop-color="#d3d8df"/>
     </linearGradient>
     <radialGradient id="keyhole" cx="0.5" cy="0.35" r="0.7">
       <stop offset="0" stop-color="#2b323a"/><stop offset="1" stop-color="#0c0f13"/>
     </radialGradient>
   </defs>
 
-  <rect width="720" height="1280" fill="url(#wall)"/>
-  <rect width="720" height="1280" fill="url(#roomlight)"/>
-  <rect x="0" y="952" width="720" height="14" fill="#b7bcc2"/>
-  <polygon points="0,966 720,966 720,1280 0,1280" fill="url(#floor)"/>
-  <g stroke="#b1936a" stroke-width="2" opacity="0.55">
-    <line x1="160" y1="966" x2="40" y2="1280"/><line x1="560" y1="966" x2="680" y2="1280"/><line x1="0" y1="1120" x2="720" y2="1120" opacity="0.5"/>
+  <!-- ===== ROOM ===== -->
+  <rect width="720" height="1280" fill="url(#wallV)"/>
+  <rect width="720" height="1280" fill="url(#topLight)"/>
+  <rect width="720" height="1280" fill="url(#cornerShade)"/>
+  <rect width="720" height="1280" fill="url(#cornerShadeR)"/>
+  <rect x="0" y="828" width="720" height="6" fill="#aab1ba" opacity="0.7"/>
+  <polygon points="0,832 720,832 720,1280 0,1280" fill="url(#floorV)"/>
+  <polygon points="0,832 720,832 720,1280 0,1280" fill="url(#floorGlow)"/>
+  <g stroke="#9aa2ac" stroke-width="2" opacity="0.18">
+    <line x1="150" y1="832" x2="-40" y2="1280"/><line x1="320" y1="832" x2="250" y2="1280"/>
+    <line x1="400" y1="832" x2="470" y2="1280"/><line x1="570" y1="832" x2="760" y2="1280"/>
   </g>
-  <ellipse cx="356" cy="966" rx="210" ry="40" fill="url(#contact)"/>
+  <rect width="720" height="1280" fill="url(#vignette)"/>
 
   <!-- left back arrow -->
-  <rect x="14" y="596" width="76" height="112" rx="16" fill="#000000" opacity="0.08"/>
-  <g stroke="#2f3b46" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.8">
-    <polyline points="66,620 38,652 66,684"/>
+  <g stroke="#48535f" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.55">
+    <polyline points="58,624 32,656 58,688"/>
   </g>
 
-  <!-- storage cabinet -->
-  <polygon points="190,300 520,300 542,322 168,322" fill="#aeb6bf"/>
-  <polygon points="520,300 542,322 542,946 520,966" fill="url(#metalSide)"/>
-  <rect x="190" y="300" width="330" height="666" fill="url(#metalFace)" stroke="#8b939c" stroke-width="2"/>
+  <!-- ===== STORAGE CABINET ===== -->
+  <ellipse cx="356" cy="950" rx="210" ry="40" fill="url(#contact)"/>
+  <!-- top + right side for depth -->
+  <polygon points="190,300 520,300 542,322 168,322" fill="#cfd5dd"/>
+  <polygon points="520,300 542,322 542,930 520,950" fill="url(#metalSide)"/>
+  <!-- front carcass -->
+  <rect x="190" y="300" width="330" height="650" fill="url(#metalFace)" stroke="#9aa2ac" stroke-width="2"/>
   <!-- doors -->
-  <rect x="200" y="312" width="150" height="642" rx="3" fill="#c8ced5" stroke="#9aa2ab" stroke-width="2"/>
-  <rect x="360" y="312" width="150" height="642" rx="3" fill="#c8ced5" stroke="#9aa2ab" stroke-width="2"/>
+  <rect x="200" y="312" width="150" height="626" rx="4" fill="url(#doorFace)" stroke="#aab2bb" stroke-width="2"/>
+  <rect x="360" y="312" width="150" height="626" rx="4" fill="url(#doorFace)" stroke="#aab2bb" stroke-width="2"/>
+  <!-- soft inner highlight -->
+  <rect x="206" y="320" width="138" height="10" fill="#ffffff" opacity="0.5"/>
+  <rect x="366" y="320" width="138" height="10" fill="#ffffff" opacity="0.5"/>
   <!-- vents -->
-  <g stroke="#9aa2ab" stroke-width="4" stroke-linecap="round">
+  <g stroke="#aab2bb" stroke-width="4" stroke-linecap="round">
     <line x1="240" y1="356" x2="310" y2="356"/><line x1="240" y1="374" x2="310" y2="374"/><line x1="240" y1="392" x2="310" y2="392"/>
     <line x1="400" y1="356" x2="470" y2="356"/><line x1="400" y1="374" x2="470" y2="374"/><line x1="400" y1="392" x2="470" y2="392"/>
   </g>
   <!-- grip handles -->
-  <rect x="330" y="592" width="11" height="78" rx="5" fill="url(#handle)"/>
-  <rect x="369" y="592" width="11" height="78" rx="5" fill="url(#handle)"/>
+  <rect x="330" y="586" width="11" height="80" rx="5.5" fill="url(#handle)"/>
+  <rect x="369" y="586" width="11" height="80" rx="5.5" fill="url(#handle)"/>
 
   <!-- realistic keyhole lock (opens with the key) -->
-  <ellipse cx="356" cy="574" rx="25" ry="6" fill="#000000" opacity="0.16"/>
+  <ellipse cx="356" cy="574" rx="25" ry="6" fill="#000000" opacity="0.14"/>
   <rect x="333" y="488" width="46" height="92" rx="16" fill="url(#lockPlate)" stroke="#717c88" stroke-width="1.5"/>
-  <rect x="333" y="488" width="46" height="92" rx="16" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.4"/>
-  <rect x="340" y="494" width="32" height="30" rx="13" fill="#ffffff" opacity="0.28"/>
+  <rect x="333" y="488" width="46" height="92" rx="16" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.45"/>
+  <rect x="340" y="494" width="32" height="28" rx="13" fill="#ffffff" opacity="0.3"/>
   <circle cx="356" cy="502" r="2.6" fill="#7e8995"/>
   <circle cx="356" cy="566" r="2.6" fill="#7e8995"/>
-  <!-- keyhole cutout: round head + tapered slot -->
   <circle cx="356" cy="530" r="9" fill="url(#keyhole)"/>
   <polygon points="356,534 349,560 363,560" fill="url(#keyhole)"/>
   <circle cx="356" cy="530" r="9" fill="none" stroke="#000000" stroke-width="1" opacity="0.5"/>

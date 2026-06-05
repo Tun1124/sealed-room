@@ -1,63 +1,94 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 1280" preserveAspectRatio="xMidYMid slice">
   <defs>
-    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#e9edf1"/><stop offset="1" stop-color="#d2d9e0"/>
+    <linearGradient id="wallV" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f2f4f7"/><stop offset="0.62" stop-color="#e2e7ed"/><stop offset="1" stop-color="#d3d9e1"/>
     </linearGradient>
-    <radialGradient id="roomlight" cx="0.5" cy="0.12" r="0.7">
-      <stop offset="0" stop-color="#ffffff" stop-opacity="0.5"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    <linearGradient id="cornerShade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#aeb7c2" stop-opacity="0.55"/><stop offset="0.22" stop-color="#aeb7c2" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="cornerShadeR" x1="1" y1="0" x2="0" y2="0">
+      <stop offset="0" stop-color="#aeb7c2" stop-opacity="0.4"/><stop offset="0.2" stop-color="#aeb7c2" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="topLight" cx="0.5" cy="0.04" r="0.85">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.65"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
     </radialGradient>
-    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#d9c19c"/><stop offset="1" stop-color="#c2a479"/>
+    <radialGradient id="vignette" cx="0.5" cy="0.44" r="0.74">
+      <stop offset="0.55" stop-color="#1b2430" stop-opacity="0"/><stop offset="1" stop-color="#1b2430" stop-opacity="0.30"/>
+    </radialGradient>
+    <linearGradient id="floorV" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#cdd3da"/><stop offset="1" stop-color="#b3bac3"/>
     </linearGradient>
+    <radialGradient id="floorGlow" cx="0.5" cy="0.0" r="0.9">
+      <stop offset="0" stop-color="#e6eaef" stop-opacity="0.7"/><stop offset="1" stop-color="#e6eaef" stop-opacity="0"/>
+    </radialGradient>
     <radialGradient id="contact" cx="0.5" cy="0.5" r="0.5">
-      <stop offset="0" stop-color="#5a4a32" stop-opacity="0.4"/><stop offset="1" stop-color="#5a4a32" stop-opacity="0"/>
+      <stop offset="0" stop-color="#3b424c" stop-opacity="0.34"/><stop offset="1" stop-color="#3b424c" stop-opacity="0"/>
     </radialGradient>
     <linearGradient id="metalFace" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#d6dbe1"/><stop offset="0.5" stop-color="#bcc3cb"/><stop offset="1" stop-color="#cdd3d9"/>
+      <stop offset="0" stop-color="#e7ebef"/><stop offset="0.5" stop-color="#c8ced6"/><stop offset="1" stop-color="#dde2e8"/>
     </linearGradient>
     <linearGradient id="inside" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#3c434c"/><stop offset="1" stop-color="#2a3038"/>
+      <stop offset="0" stop-color="#454c55"/><stop offset="1" stop-color="#2f353d"/>
+    </linearGradient>
+    <linearGradient id="doorFace" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#e3e8ed"/><stop offset="1" stop-color="#c6ccd4"/>
     </linearGradient>
     <linearGradient id="handle" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#e4e8ec"/><stop offset="0.5" stop-color="#a7afb8"/><stop offset="1" stop-color="#cfd5db"/>
+      <stop offset="0" stop-color="#eef1f4"/><stop offset="0.5" stop-color="#a7afb8"/><stop offset="1" stop-color="#d0d6dc"/>
+    </linearGradient>
+    <linearGradient id="paper" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff7d6"/><stop offset="1" stop-color="#ffe98a"/>
     </linearGradient>
   </defs>
 
-  <rect width="720" height="1280" fill="url(#wall)"/>
-  <rect width="720" height="1280" fill="url(#roomlight)"/>
-  <rect x="0" y="952" width="720" height="14" fill="#b7bcc2"/>
-  <polygon points="0,966 720,966 720,1280 0,1280" fill="url(#floor)"/>
-  <g stroke="#b1936a" stroke-width="2" opacity="0.55">
-    <line x1="160" y1="966" x2="40" y2="1280"/><line x1="560" y1="966" x2="680" y2="1280"/>
+  <!-- ===== ROOM ===== -->
+  <rect width="720" height="1280" fill="url(#wallV)"/>
+  <rect width="720" height="1280" fill="url(#topLight)"/>
+  <rect width="720" height="1280" fill="url(#cornerShade)"/>
+  <rect width="720" height="1280" fill="url(#cornerShadeR)"/>
+  <rect x="0" y="828" width="720" height="6" fill="#aab1ba" opacity="0.7"/>
+  <polygon points="0,832 720,832 720,1280 0,1280" fill="url(#floorV)"/>
+  <polygon points="0,832 720,832 720,1280 0,1280" fill="url(#floorGlow)"/>
+  <g stroke="#9aa2ac" stroke-width="2" opacity="0.18">
+    <line x1="150" y1="832" x2="-40" y2="1280"/><line x1="320" y1="832" x2="250" y2="1280"/>
+    <line x1="400" y1="832" x2="470" y2="1280"/><line x1="570" y1="832" x2="760" y2="1280"/>
   </g>
-  <ellipse cx="380" cy="966" rx="220" ry="40" fill="url(#contact)"/>
+  <rect width="720" height="1280" fill="url(#vignette)"/>
 
   <!-- left back arrow -->
-  <rect x="14" y="596" width="76" height="112" rx="16" fill="#000000" opacity="0.08"/>
-  <g stroke="#2f3b46" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.8">
-    <polyline points="66,620 38,652 66,684"/>
+  <g stroke="#48535f" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.55">
+    <polyline points="58,624 32,656 58,688"/>
   </g>
 
-  <!-- cabinet carcass + interior -->
-  <rect x="190" y="300" width="330" height="666" fill="url(#metalFace)" stroke="#8b939c" stroke-width="2"/>
-  <rect x="206" y="316" width="298" height="634" rx="3" fill="url(#inside)"/>
-  <!-- open door swung left -->
-  <polygon points="190,300 96,344 96,922 190,966" fill="#c8ced5" stroke="#9aa2ab" stroke-width="2"/>
-  <rect x="170" y="600" width="10" height="70" rx="5" fill="url(#handle)"/>
+  <!-- ===== OPEN CABINET ===== -->
+  <ellipse cx="376" cy="950" rx="220" ry="40" fill="url(#contact)"/>
+  <!-- carcass + dark interior -->
+  <rect x="190" y="300" width="330" height="650" fill="url(#metalFace)" stroke="#9aa2ac" stroke-width="2"/>
+  <rect x="206" y="316" width="298" height="618" rx="3" fill="url(#inside)"/>
+  <!-- inner side shading -->
+  <polygon points="206,316 232,338 232,912 206,934" fill="#000000" opacity="0.18"/>
+  <!-- open door swung to the left -->
+  <polygon points="190,300 92,346 92,906 190,950" fill="url(#doorFace)" stroke="#aab2bb" stroke-width="2"/>
+  <polygon points="190,300 92,346 100,348 190,308" fill="#ffffff" opacity="0.4"/>
+  <rect x="168" y="592" width="11" height="78" rx="5.5" fill="url(#handle)"/>
   <!-- shelves -->
-  <rect x="206" y="520" width="298" height="10" fill="#171c22"/>
-  <rect x="206" y="744" width="298" height="10" fill="#171c22"/>
+  <rect x="206" y="520" width="298" height="12" fill="#1c2127"/>
+  <rect x="206" y="520" width="298" height="3" fill="#5a626c"/>
+  <rect x="206" y="744" width="298" height="12" fill="#1c2127"/>
+  <rect x="206" y="744" width="298" height="3" fill="#5a626c"/>
 
   <!-- note half A (left pickup) -->
-  <g transform="rotate(-6 270 590)">
-    <polygon points="218,528 326,528 320,650 224,644" fill="#ffe98a"/>
+  <g transform="rotate(-6 270 588)">
+    <ellipse cx="272" cy="650" rx="58" ry="9" fill="#000000" opacity="0.28"/>
+    <polygon points="218,528 326,528 320,650 224,644" fill="url(#paper)"/>
     <line x1="244" y1="562" x2="312" y2="562" stroke="#b08f3a" stroke-width="4" stroke-linecap="round"/>
     <line x1="244" y1="588" x2="298" y2="588" stroke="#b08f3a" stroke-width="4" stroke-linecap="round"/>
     <polygon points="320,528 326,548 312,568 326,590 316,612 326,632 320,650" fill="#e9cf63"/>
   </g>
   <!-- note half B (right pickup) -->
-  <g transform="rotate(5 448 590)">
-    <polygon points="396,528 504,532 504,648 402,650" fill="#ffe98a"/>
+  <g transform="rotate(5 448 588)">
+    <ellipse cx="450" cy="652" rx="58" ry="9" fill="#000000" opacity="0.28"/>
+    <polygon points="396,528 504,532 504,648 402,650" fill="url(#paper)"/>
     <line x1="420" y1="562" x2="486" y2="562" stroke="#b08f3a" stroke-width="4" stroke-linecap="round"/>
     <line x1="420" y1="588" x2="472" y2="588" stroke="#b08f3a" stroke-width="4" stroke-linecap="round"/>
     <polygon points="396,528 404,548 392,568 404,590 396,612 404,632 396,650" fill="#e9cf63"/>
