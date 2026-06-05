@@ -54,19 +54,17 @@
 
       /* tutorial coach */
       #coach { position:fixed; left:50%; top:calc(72px + env(safe-area-inset-top)); transform:translateX(-50%) translateY(-16px);
-        width:min(88vw, 420px); background:linear-gradient(180deg, rgba(15,26,40,.97), rgba(9,17,28,.97));
-        border:1px solid var(--amber); border-radius:14px; padding:14px 16px 12px; z-index:40;
-        box-shadow:0 10px 40px rgba(0,0,0,.55), 0 0 24px rgba(255,157,60,.15); opacity:0; pointer-events:none;
-        transition:opacity .3s, transform .3s; }
+        width:min(88vw, 420px); background:transparent; border:none; padding:8px 14px; z-index:40;
+        opacity:0; pointer-events:none; text-align:center; transition:opacity .3s, transform .3s; }
       #coach.show { opacity:1; transform:translateX(-50%) translateY(0); }
-      #coach::after { content:""; position:absolute; left:50%; top:-9px; width:16px; height:16px;
-        background:rgba(15,26,40,.97); border-left:1px solid var(--amber);
-        border-top:1px solid var(--amber); transform:translateX(-50%) rotate(45deg); }
-      #coach .coach-tag { font-family:var(--display); font-size:11px; letter-spacing:.22em; color:var(--amber-soft); text-transform:uppercase; }
-      #coach .coach-text { margin-top:5px; font-size:15px; line-height:1.55; color:var(--ink); }
-      #coach .coach-skip { display:block; margin-top:10px; margin-left:auto; font-family:var(--display);
-        font-size:12px; letter-spacing:.1em; color:var(--muted); background:none; border:none; cursor:pointer;
-        padding:4px; pointer-events:auto; }
+      #coach::after { display:none; }
+      #coach .coach-tag { font-family:var(--display); font-size:11px; letter-spacing:.22em; color:#cf7d16;
+        text-transform:uppercase; text-shadow:0 1px 3px rgba(255,255,255,.75); }
+      #coach .coach-text { margin-top:5px; font-size:15px; line-height:1.55; color:#18222c; font-weight:600;
+        text-shadow:0 1px 4px rgba(255,255,255,.95), 0 0 2px rgba(255,255,255,.95); }
+      #coach .coach-skip { display:inline-block; margin-top:10px; font-family:var(--display);
+        font-size:12px; letter-spacing:.1em; color:#54626e; background:none; border:none; cursor:pointer;
+        padding:4px; pointer-events:auto; text-shadow:0 1px 3px rgba(255,255,255,.75); }
 
       /* keypad */
       .kp-overlay { position:fixed; inset:0; z-index:80; display:flex; align-items:center; justify-content:center;
