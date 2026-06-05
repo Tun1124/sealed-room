@@ -13,7 +13,7 @@ interface Step {
 
 const steps: Step[] = [
   {
-    text: '停電だ…。画面の光っている場所をタップして、手がかりを調べよう。',
+    text: 'オフィスから脱出しよう。光っている場所をタップして手がかりを探そう。',
     complete: (s, examined) =>
       examined || s.inventory.length > 0 || s.solvedPuzzles.length > 0 || s.currentNodeId !== 'desk',
   },

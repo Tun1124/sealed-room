@@ -2,7 +2,7 @@ import type { SceneData } from '../engine/types';
 
 export const chapter1: SceneData = {
   id: 'chapter1',
-  title: '停電したオフィス（チュートリアル）',
+  title: 'オフィス（チュートリアル）',
   startNodeId: 'desk',
   winFlag: 'escaped',
   items: {

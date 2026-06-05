@@ -1,120 +1,134 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 1280" preserveAspectRatio="xMidYMid slice">
   <defs>
-    <linearGradient id="room" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#0a111c"/><stop offset="0.5" stop-color="#0c1521"/><stop offset="1" stop-color="#04070d"/>
+    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e9edf1"/><stop offset="1" stop-color="#d2d9e0"/>
     </linearGradient>
-    <radialGradient id="amber" cx="0.5" cy="0.04" r="0.7">
-      <stop offset="0" stop-color="#ffb24d" stop-opacity="0.55"/><stop offset="0.4" stop-color="#ff8a2b" stop-opacity="0.12"/><stop offset="1" stop-color="#ff8a2b" stop-opacity="0"/>
+    <radialGradient id="roomlight" cx="0.5" cy="0.12" r="0.7">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.5"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="vig" cx="0.5" cy="0.46" r="0.74">
-      <stop offset="0.42" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="0.82"/>
-    </radialGradient>
-    <radialGradient id="note" cx="0.5" cy="0.3" r="0.95">
-      <stop offset="0" stop-color="#fff0c2"/><stop offset="1" stop-color="#e6bd5e"/>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#cdeafd"/><stop offset="1" stop-color="#a4cfe8"/>
+    </linearGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d9c19c"/><stop offset="1" stop-color="#c2a479"/>
+    </linearGradient>
+    <radialGradient id="contact" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#5a4a32" stop-opacity="0.42"/><stop offset="1" stop-color="#5a4a32" stop-opacity="0"/>
     </radialGradient>
     <linearGradient id="woodTop" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#71502f"/><stop offset="1" stop-color="#5b3d26"/>
+      <stop offset="0" stop-color="#dcb888"/><stop offset="1" stop-color="#c89f69"/>
     </linearGradient>
     <linearGradient id="woodFront" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#432d1c"/><stop offset="1" stop-color="#2c1d12"/>
+      <stop offset="0" stop-color="#bd9760"/><stop offset="1" stop-color="#a37e4d"/>
     </linearGradient>
     <linearGradient id="woodSide" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#34230f"/><stop offset="1" stop-color="#22160b"/>
+      <stop offset="0" stop-color="#a9824f"/><stop offset="1" stop-color="#946f42"/>
     </linearGradient>
-    <linearGradient id="leg" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#28333f"/><stop offset="0.5" stop-color="#131c25"/><stop offset="1" stop-color="#222d39"/>
+    <linearGradient id="ped" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f1efea"/><stop offset="1" stop-color="#dcd8cf"/>
     </linearGradient>
-    <radialGradient id="screen" cx="0.5" cy="0.4" r="0.8">
-      <stop offset="0" stop-color="#13314a"/><stop offset="1" stop-color="#0a1622"/>
+    <linearGradient id="metal" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#cfd5db"/><stop offset="0.5" stop-color="#aab2bb"/><stop offset="1" stop-color="#c6ccd3"/>
+    </linearGradient>
+    <radialGradient id="screen" cx="0.4" cy="0.35" r="0.9">
+      <stop offset="0" stop-color="#26424f"/><stop offset="1" stop-color="#142730"/>
     </radialGradient>
-    <radialGradient id="floorShadow" cx="0.5" cy="0.5" r="0.5">
-      <stop offset="0" stop-color="#000" stop-opacity="0.55"/><stop offset="1" stop-color="#000" stop-opacity="0"/>
-    </radialGradient>
-    <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope="0.05"/></feComponentTransfer></filter>
   </defs>
 
-  <rect width="720" height="1280" fill="url(#room)"/>
-  <polygon points="300,0 420,0 600,560 120,560" fill="url(#amber)"/>
-  <rect width="720" height="1280" fill="url(#amber)"/>
+  <!-- room -->
+  <rect width="720" height="1280" fill="url(#wall)"/>
+  <rect width="720" height="1280" fill="url(#roomlight)"/>
 
-  <!-- emergency strip light -->
-  <rect x="250" y="44" width="220" height="12" rx="6" fill="#ffce8a" opacity="0.9"/>
-  <rect x="252" y="46" width="216" height="4" rx="2" fill="#fff4dc"/>
+  <!-- window with daylight -->
+  <rect x="222" y="118" width="276" height="232" rx="6" fill="#f4f6f8" stroke="#c2c9d1" stroke-width="3"/>
+  <rect x="236" y="132" width="248" height="204" fill="url(#sky)"/>
+  <rect x="354" y="132" width="12" height="204" fill="#eef2f5"/>
+  <rect x="236" y="226" width="248" height="12" fill="#eef2f5"/>
+  <polygon points="248,140 300,140 264,330 236,330 236,300" fill="#ffffff" opacity="0.18"/>
 
-  <!-- back wall / floor -->
-  <rect x="0" y="700" width="720" height="6" fill="#0a121c" opacity="0.7"/>
-  <polygon points="0,706 720,706 720,1280 0,1280" fill="#060b13"/>
-  <ellipse cx="360" cy="1080" rx="300" ry="70" fill="url(#floorShadow)"/>
+  <!-- wall clock -->
+  <circle cx="586" cy="190" r="34" fill="#fbfcfd" stroke="#b9c0c8" stroke-width="3"/>
+  <circle cx="586" cy="190" r="3" fill="#3a4350"/>
+  <line x1="586" y1="190" x2="586" y2="170" stroke="#3a4350" stroke-width="3" stroke-linecap="round"/>
+  <line x1="586" y1="190" x2="602" y2="196" stroke="#3a4350" stroke-width="3" stroke-linecap="round"/>
 
-  <!-- navigation arrows (left = door, right = cabinet) -->
-  <g stroke="#4fd0e0" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.85">
-    <circle cx="52" cy="652" r="40" fill="#4fd0e0" opacity="0.06" stroke="none"/>
-    <polyline points="64,612 36,652 64,692"/>
-    <circle cx="668" cy="652" r="40" fill="#4fd0e0" opacity="0.06" stroke="none"/>
-    <polyline points="656,612 684,652 656,692"/>
+  <!-- floor -->
+  <rect x="0" y="824" width="720" height="14" fill="#b7bcc2"/>
+  <polygon points="0,838 720,838 720,1280 0,1280" fill="url(#floor)"/>
+  <g stroke="#b1936a" stroke-width="2" opacity="0.6">
+    <line x1="120" y1="838" x2="-30" y2="1280"/><line x1="300" y1="838" x2="250" y2="1280"/>
+    <line x1="420" y1="838" x2="470" y2="1280"/><line x1="600" y1="838" x2="750" y2="1280"/>
+    <line x1="0" y1="980" x2="720" y2="980" opacity="0.5"/><line x1="0" y1="1140" x2="720" y2="1140" opacity="0.5"/>
+  </g>
+  <ellipse cx="360" cy="1082" rx="290" ry="64" fill="url(#contact)"/>
+
+  <!-- navigation arrows -->
+  <g>
+    <rect x="14" y="600" width="74" height="104" rx="16" fill="#ffffff" opacity="0.14"/>
+    <rect x="632" y="600" width="74" height="104" rx="16" fill="#ffffff" opacity="0.14"/>
+    <g stroke="#2f3b46" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.85">
+      <polyline points="64,620 38,652 64,684"/>
+      <polyline points="656,620 682,652 656,684"/>
+    </g>
   </g>
 
-  <!-- ===== DESK (one-point perspective, VP ~360,330) ===== -->
+  <!-- ===== DESK ===== -->
   <!-- left legs -->
-  <polygon points="118,664 146,664 138,1082 110,1082" fill="url(#leg)"/>
-  <polygon points="206,556 228,556 232,952 210,952" fill="url(#leg)"/>
-  <polygon points="132,1006 218,924 226,940 140,1026" fill="#10171f"/>
-  <polygon points="132,690 210,584 216,598 138,706" fill="#16202b" opacity="0.8"/>
+  <polygon points="118,664 146,664 138,1082 110,1082" fill="url(#metal)"/>
+  <polygon points="206,556 228,556 232,952 210,952" fill="url(#metal)"/>
+  <polygon points="132,1006 218,924 226,940 140,1026" fill="#9aa3ac"/>
+  <polygon points="132,690 210,584 216,598 138,706" fill="#b3bac1"/>
 
-  <!-- right drawer pedestal: left side face (depth) + front face -->
-  <polygon points="300,686 317,586 317,869 300,1078" fill="url(#woodSide)"/>
-  <rect x="300" y="686" width="196" height="392" fill="url(#woodFront)" stroke="#1f140b" stroke-width="2"/>
-  <!-- drawers -->
-  <rect x="312" y="700" width="172" height="84" rx="4" fill="#4c3320" stroke="#201308" stroke-width="2"/>
-  <rect x="372" y="736" width="52" height="10" rx="5" fill="#9aa6b4"/>
-  <rect x="312" y="794" width="172" height="84" rx="4" fill="#4c3320" stroke="#201308" stroke-width="2"/>
-  <rect x="372" y="830" width="52" height="10" rx="5" fill="#9aa6b4"/>
-  <rect x="312" y="888" width="172" height="178" rx="4" fill="#4c3320" stroke="#201308" stroke-width="2"/>
-  <rect x="372" y="908" width="52" height="10" rx="5" fill="#9aa6b4"/>
-  <!-- keypad lock on bottom drawer -->
-  <rect x="348" y="958" width="100" height="86" rx="9" fill="#0a141f" stroke="#ff9d3c" stroke-width="2"/>
-  <rect x="360" y="968" width="76" height="20" rx="4" fill="#06222e"/>
-  <text x="398" y="984" font-family="Chakra Petch, monospace" font-size="13" fill="#4fd0e0" text-anchor="middle" letter-spacing="4">----</text>
-  <g fill="#ffb24d">
+  <!-- right drawer pedestal -->
+  <polygon points="300,686 317,586 317,869 300,1078" fill="#cdc8bd"/>
+  <rect x="300" y="686" width="196" height="392" fill="url(#ped)" stroke="#c2bdb1" stroke-width="2"/>
+  <rect x="312" y="700" width="172" height="84" rx="5" fill="#e7e3da" stroke="#cfcabe" stroke-width="2"/>
+  <rect x="372" y="736" width="52" height="10" rx="5" fill="url(#metal)"/>
+  <rect x="312" y="794" width="172" height="84" rx="5" fill="#e7e3da" stroke="#cfcabe" stroke-width="2"/>
+  <rect x="372" y="830" width="52" height="10" rx="5" fill="url(#metal)"/>
+  <rect x="312" y="888" width="172" height="178" rx="5" fill="#e7e3da" stroke="#cfcabe" stroke-width="2"/>
+  <rect x="372" y="908" width="52" height="10" rx="5" fill="url(#metal)"/>
+  <!-- keypad lock (sleek dark panel on the light drawer) -->
+  <rect x="348" y="958" width="100" height="86" rx="10" fill="#222a32" stroke="#3a444e" stroke-width="2"/>
+  <rect x="360" y="968" width="76" height="20" rx="4" fill="#0d2730"/>
+  <text x="398" y="984" font-family="Chakra Petch, monospace" font-size="13" fill="#5fd6e6" text-anchor="middle" letter-spacing="4">----</text>
+  <g fill="#c7ccd2">
     <circle cx="374" cy="1010" r="5"/><circle cx="398" cy="1010" r="5"/><circle cx="422" cy="1010" r="5"/>
     <circle cx="374" cy="1030" r="5"/><circle cx="398" cy="1030" r="5"/><circle cx="422" cy="1030" r="5"/>
   </g>
 
-  <!-- desktop slab: side faces + front + top (drawn last to overhang) -->
+  <!-- desktop slab -->
   <polygon points="96,636 202,518 202,552 96,670" fill="url(#woodSide)"/>
-  <polygon points="624,636 518,518 518,552 624,670" fill="#22160b"/>
+  <polygon points="624,636 518,518 518,552 624,670" fill="#946f42"/>
   <rect x="96" y="636" width="528" height="34" fill="url(#woodFront)"/>
-  <rect x="96" y="636" width="528" height="3" fill="#8a6238" opacity="0.5"/>
-  <polygon points="202,518 518,518 624,636 96,636" fill="url(#woodTop)" stroke="#2a1c10" stroke-width="2"/>
-  <g stroke="#3a2616" stroke-width="2" opacity="0.3">
+  <rect x="96" y="636" width="528" height="3" fill="#ecd2ad" opacity="0.7"/>
+  <polygon points="202,518 518,518 624,636 96,636" fill="url(#woodTop)" stroke="#a9824f" stroke-width="2"/>
+  <g stroke="#c29c66" stroke-width="2" opacity="0.4">
     <line x1="232" y1="544" x2="488" y2="544"/><line x1="190" y1="572" x2="530" y2="572"/>
     <line x1="148" y1="602" x2="572" y2="602"/><line x1="110" y1="628" x2="610" y2="628"/>
   </g>
-  <polygon points="202,518 518,518 524,528 196,528" fill="#825e38" opacity="0.5"/>
-  <!-- overhang shadow onto pedestal -->
-  <rect x="300" y="636" width="196" height="14" fill="#000" opacity="0.35"/>
+  <polygon points="202,518 518,518 524,528 196,528" fill="#ecd0a6" opacity="0.6"/>
+  <rect x="300" y="636" width="196" height="12" fill="#5a4a32" opacity="0.22"/>
 
   <!-- monitor -->
-  <ellipse cx="300" cy="560" rx="58" ry="10" fill="#0a121c" opacity="0.6"/>
-  <rect x="290" y="524" width="20" height="38" fill="#16222f"/>
-  <rect x="230" y="402" width="140" height="126" rx="8" fill="#0c1620" stroke="#2c4763" stroke-width="3"/>
+  <ellipse cx="300" cy="560" rx="58" ry="9" fill="#000" opacity="0.18"/>
+  <rect x="290" y="524" width="20" height="38" fill="#b9bfc6"/>
+  <rect x="230" y="402" width="140" height="126" rx="8" fill="#d3d8dd" stroke="#aeb5bd" stroke-width="3"/>
   <rect x="242" y="414" width="116" height="102" rx="3" fill="url(#screen)"/>
-  <rect x="254" y="430" width="58" height="6" rx="3" fill="#1c3a52"/>
-  <rect x="254" y="446" width="88" height="5" rx="2.5" fill="#16304a" opacity="0.7"/>
+  <rect x="254" y="430" width="58" height="6" rx="3" fill="#3f6c80"/>
+  <rect x="254" y="446" width="88" height="5" rx="2.5" fill="#2f5366" opacity="0.8"/>
+  <polygon points="248,418 300,418 268,512 248,512" fill="#ffffff" opacity="0.07"/>
 
-  <!-- keyboard on desktop -->
-  <polygon points="386,604 506,604 520,628 374,628" fill="#16222f" stroke="#26384a" stroke-width="1.5"/>
-  <g fill="#0c1722"><rect x="392" y="609" width="118" height="6" rx="2"/><rect x="388" y="618" width="124" height="6" rx="2"/></g>
+  <!-- keyboard -->
+  <polygon points="386,604 506,604 520,628 374,628" fill="#e6e8eb" stroke="#c3c9cf" stroke-width="1.5"/>
+  <g fill="#c6ccd2"><rect x="392" y="609" width="118" height="6" rx="2"/><rect x="388" y="618" width="124" height="6" rx="2"/></g>
 
-  <!-- glowing note (examine) -->
+  <!-- sticky note (examine) -->
   <g transform="rotate(-5 300 592)">
-    <rect x="252" y="548" width="100" height="90" rx="4" fill="url(#note)"/>
-    <rect x="252" y="548" width="100" height="90" rx="4" fill="none" stroke="#fff6da" stroke-width="1.5" opacity="0.6"/>
-    <line x1="268" y1="576" x2="336" y2="576" stroke="#9a7b2e" stroke-width="3" stroke-linecap="round"/>
-    <line x1="268" y1="596" x2="328" y2="596" stroke="#9a7b2e" stroke-width="3" stroke-linecap="round"/>
-    <line x1="268" y1="616" x2="312" y2="616" stroke="#9a7b2e" stroke-width="3" stroke-linecap="round"/>
+    <rect x="252" y="548" width="100" height="90" rx="3" fill="#ffe98a"/>
+    <rect x="252" y="548" width="100" height="90" rx="3" fill="none" stroke="#fff3c0" stroke-width="1.5"/>
+    <line x1="268" y1="576" x2="336" y2="576" stroke="#b08f3a" stroke-width="3" stroke-linecap="round"/>
+    <line x1="268" y1="596" x2="328" y2="596" stroke="#b08f3a" stroke-width="3" stroke-linecap="round"/>
+    <line x1="268" y1="616" x2="312" y2="616" stroke="#b08f3a" stroke-width="3" stroke-linecap="round"/>
   </g>
-
-  <rect width="720" height="1280" fill="url(#vig)"/>
-  <rect width="720" height="1280" filter="url(#grain)" opacity="0.5"/>
 </svg>
