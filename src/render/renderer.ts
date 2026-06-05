@@ -12,7 +12,23 @@ export class Renderer {
   private state!: GameState;
   private readonly base = import.meta.env.BASE_URL;
 
-  constructor(private scene: SceneData, private cb: RendererCallbacks) {}
+  /** デコード済みシーン画像のキャッシュ（遷移時の暗転防止） */
+  private readonly preloaded = new Map<string, HTMLImageElement>();
+
+  constructor(private scene: SceneData, private cb: RendererCallbacks) {
+    this.preloadScenes();
+  }
+
+  /** 全ノードの背景画像を先読みして、移動時に下地の暗色が見えるのを防ぐ。 */
+  private preloadScenes(): void {
+    for (const id of Object.keys(this.scene.nodes)) {
+      const url = `${this.base}${this.scene.nodes[id].image}`;
+      const img = new Image();
+      img.src = url;
+      void img.decode?.().catch(() => {});
+      this.preloaded.set(url, img);
+    }
+  }
 
   render(state: GameState): void {
     this.state = state;
