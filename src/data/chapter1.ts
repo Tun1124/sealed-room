@@ -30,7 +30,7 @@ export const chapter1: SceneData = {
       hotspots: [
         { id: 'note-on-desk', area: { x: 34, y: 42, width: 18, height: 12 },
           action: { type: 'examine', text: '走り書き：「引き出しは 1234」' } },
-        { id: 'drawer', area: { x: 43, y: 69, width: 24, height: 15 },
+        { id: 'drawer', area: { x: 23, y: 71, width: 16, height: 12 },
           action: { type: 'openPuzzle', puzzleId: 'drawerLock' } },
         { id: 'to-cabinet', area: { x: 84, y: 45, width: 13, height: 13 },
           action: { type: 'navigate', targetNodeId: 'cabinet' } },
@@ -62,7 +62,7 @@ export const chapter1: SceneData = {
     door: {
       id: 'door', image: 'scenes/chapter1/door.svg',
       hotspots: [
-        { id: 'door-lock', area: { x: 40, y: 45, width: 20, height: 15 },
+        { id: 'door-lock', area: { x: 55, y: 48, width: 14, height: 14 },
           action: { type: 'openPuzzle', puzzleId: 'exitDoor' } },
         { id: 'door-back', area: { x: 80, y: 40, width: 15, height: 30 },
           action: { type: 'navigate', targetNodeId: 'desk' } },

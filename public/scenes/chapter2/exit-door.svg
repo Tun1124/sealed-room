@@ -53,22 +53,22 @@
   <!-- big brass knob -->
   <circle cx="492" cy="600" r="16" fill="url(#brass)" stroke="#a8842f" stroke-width="2"/>
 
-  <!-- wall keypad lock (final code) -->
-  <ellipse cx="300" cy="700" rx="62" ry="120" fill="#000000" opacity="0.05"/>
-  <rect x="288" y="556" width="112" height="222" rx="14" fill="#222a32" stroke="#3a444e" stroke-width="2"/>
-  <rect x="288" y="556" width="112" height="222" rx="14" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
-  <rect x="302" y="570" width="84" height="26" rx="4" fill="#0c252e"/>
-  <text x="344" y="590" font-family="Chakra Petch, monospace" font-size="16" fill="#5fd6e6" text-anchor="middle" letter-spacing="5">----</text>
-  <g font-family="Chakra Petch, sans-serif" font-size="17" fill="#e2e6ea" text-anchor="middle">
+  <!-- keypad lock (compact, beside the knob) -->
+  <ellipse cx="446" cy="712" rx="48" ry="90" fill="#000000" opacity="0.05"/>
+  <rect x="404" y="626" width="84" height="158" rx="12" fill="#222a32" stroke="#3a444e" stroke-width="2"/>
+  <rect x="404" y="626" width="84" height="158" rx="12" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+  <rect x="414" y="635" width="64" height="20" rx="4" fill="#0c252e"/>
+  <text x="446" y="650" font-family="Chakra Petch, monospace" font-size="12" fill="#5fd6e6" text-anchor="middle" letter-spacing="4">----</text>
+  <g font-family="Chakra Petch, sans-serif" font-size="13" fill="#e2e6ea" text-anchor="middle">
     <g fill="#39434e">
-      <rect x="306" y="610" width="24" height="24" rx="5"/><rect x="332" y="610" width="24" height="24" rx="5"/><rect x="358" y="610" width="24" height="24" rx="5"/>
-      <rect x="306" y="640" width="24" height="24" rx="5"/><rect x="332" y="640" width="24" height="24" rx="5"/><rect x="358" y="640" width="24" height="24" rx="5"/>
-      <rect x="306" y="670" width="24" height="24" rx="5"/><rect x="332" y="670" width="24" height="24" rx="5"/><rect x="358" y="670" width="24" height="24" rx="5"/>
-      <rect x="332" y="700" width="24" height="24" rx="5"/>
+      <rect x="416" y="665" width="18" height="18" rx="4"/><rect x="437" y="665" width="18" height="18" rx="4"/><rect x="458" y="665" width="18" height="18" rx="4"/>
+      <rect x="416" y="687" width="18" height="18" rx="4"/><rect x="437" y="687" width="18" height="18" rx="4"/><rect x="458" y="687" width="18" height="18" rx="4"/>
+      <rect x="416" y="709" width="18" height="18" rx="4"/><rect x="437" y="709" width="18" height="18" rx="4"/><rect x="458" y="709" width="18" height="18" rx="4"/>
+      <rect x="437" y="731" width="18" height="18" rx="4"/>
     </g>
-    <text x="318" y="627">1</text><text x="344" y="627">2</text><text x="370" y="627">3</text>
-    <text x="318" y="657">4</text><text x="344" y="657">5</text><text x="370" y="657">6</text>
-    <text x="318" y="687">7</text><text x="344" y="687">8</text><text x="370" y="687">9</text>
-    <text x="344" y="717">0</text>
+    <text x="425" y="678">1</text><text x="446" y="678">2</text><text x="467" y="678">3</text>
+    <text x="425" y="700">4</text><text x="446" y="700">5</text><text x="467" y="700">6</text>
+    <text x="425" y="722">7</text><text x="446" y="722">8</text><text x="467" y="722">9</text>
+    <text x="446" y="744">0</text>
   </g>
 </svg>

@@ -91,32 +91,32 @@
   </g>
 
   <!-- ===== DESK ===== -->
-  <!-- legs (left side) -->
-  <ellipse cx="128" cy="1086" rx="42" ry="10" fill="#000" opacity="0.12"/>
-  <ellipse cx="218" cy="956" rx="34" ry="8" fill="#000" opacity="0.10"/>
-  <polygon points="118,664 146,664 138,1082 110,1082" fill="url(#legMetal)"/>
-  <polygon points="206,556 228,556 232,952 210,952" fill="url(#legMetal)"/>
-  <polygon points="132,1004 214,924 222,940 140,1022" fill="#aab2bb"/>
-  <polygon points="132,690 208,584 214,598 138,704" fill="#c3c9d0"/>
+  <!-- legs (right side) -->
+  <ellipse cx="592" cy="1086" rx="42" ry="10" fill="#000" opacity="0.12"/>
+  <ellipse cx="502" cy="956" rx="34" ry="8" fill="#000" opacity="0.10"/>
+  <polygon points="602,664 574,664 582,1082 610,1082" fill="url(#legMetal)"/>
+  <polygon points="514,556 492,556 488,952 510,952" fill="url(#legMetal)"/>
+  <polygon points="588,1004 506,924 498,940 580,1022" fill="#aab2bb"/>
+  <polygon points="588,690 512,584 506,598 582,704" fill="#c3c9d0"/>
 
-  <!-- right drawer pedestal -->
-  <polygon points="300,686 318,588 318,968 300,1078" fill="url(#pedSide)"/>
-  <rect x="300" y="686" width="196" height="392" rx="3" fill="url(#ped)" stroke="#cfd4da" stroke-width="2"/>
+  <!-- left drawer pedestal -->
+  <polygon points="346,686 360,700 360,1066 346,1078" fill="url(#pedSide)"/>
+  <rect x="150" y="686" width="196" height="392" rx="3" fill="url(#ped)" stroke="#cfd4da" stroke-width="2"/>
   <!-- drawers -->
-  <rect x="312" y="700" width="172" height="84" rx="6" fill="url(#drawerFace)" stroke="#d2d7dd" stroke-width="2"/>
-  <rect x="370" y="736" width="56" height="11" rx="5.5" fill="url(#metal)"/>
-  <rect x="312" y="794" width="172" height="84" rx="6" fill="url(#drawerFace)" stroke="#d2d7dd" stroke-width="2"/>
-  <rect x="370" y="830" width="56" height="11" rx="5.5" fill="url(#metal)"/>
-  <rect x="312" y="888" width="172" height="178" rx="6" fill="url(#drawerFace)" stroke="#d2d7dd" stroke-width="2"/>
-  <!-- bottom drawer: keypad lock (the puzzle) -->
-  <ellipse cx="398" cy="1052" rx="70" ry="9" fill="#000" opacity="0.06"/>
-  <rect x="346" y="936" width="104" height="104" rx="12" fill="#222a32" stroke="#39434d" stroke-width="2"/>
-  <rect x="346" y="936" width="104" height="104" rx="12" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.10"/>
-  <rect x="358" y="947" width="80" height="22" rx="4" fill="#0c252e"/>
-  <text x="398" y="964" font-family="Chakra Petch, monospace" font-size="14" fill="#5fd6e6" text-anchor="middle" letter-spacing="5">----</text>
+  <rect x="162" y="700" width="172" height="84" rx="6" fill="url(#drawerFace)" stroke="#d2d7dd" stroke-width="2"/>
+  <rect x="220" y="736" width="56" height="11" rx="5.5" fill="url(#metal)"/>
+  <rect x="162" y="794" width="172" height="84" rx="6" fill="url(#drawerFace)" stroke="#d2d7dd" stroke-width="2"/>
+  <rect x="220" y="830" width="56" height="11" rx="5.5" fill="url(#metal)"/>
+  <rect x="162" y="888" width="172" height="178" rx="6" fill="url(#drawerFace)" stroke="#d2d7dd" stroke-width="2"/>
+  <rect x="288" y="930" width="44" height="10" rx="5" fill="url(#metal)"/>
+  <!-- bottom drawer: compact keypad lock, set to the left (not centered) -->
+  <rect x="182" y="930" width="64" height="82" rx="9" fill="#222a32" stroke="#39434d" stroke-width="2"/>
+  <rect x="182" y="930" width="64" height="82" rx="9" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.10"/>
+  <rect x="189" y="938" width="50" height="14" rx="3" fill="#0c252e"/>
+  <text x="214" y="949" font-family="Chakra Petch, monospace" font-size="9" fill="#5fd6e6" text-anchor="middle" letter-spacing="3">----</text>
   <g fill="#cfd4da">
-    <circle cx="372" cy="992" r="5.4"/><circle cx="398" cy="992" r="5.4"/><circle cx="424" cy="992" r="5.4"/>
-    <circle cx="372" cy="1016" r="5.4"/><circle cx="398" cy="1016" r="5.4"/><circle cx="424" cy="1016" r="5.4"/>
+    <circle cx="200" cy="972" r="3.4"/><circle cx="214" cy="972" r="3.4"/><circle cx="228" cy="972" r="3.4"/>
+    <circle cx="200" cy="990" r="3.4"/><circle cx="214" cy="990" r="3.4"/><circle cx="228" cy="990" r="3.4"/>
   </g>
 
   <!-- desktop slab -->
@@ -129,7 +129,7 @@
   <polygon points="214,532 372,532 322,560 188,560" fill="#ffffff" opacity="0.45"/>
   <polygon points="202,520 518,520 524,530 196,530" fill="#ffffff" opacity="0.7"/>
   <!-- AO where pedestal meets the underside of the top -->
-  <rect x="300" y="636" width="196" height="14" fill="#3b424c" opacity="0.16"/>
+  <rect x="150" y="636" width="196" height="14" fill="#3b424c" opacity="0.16"/>
 
   <!-- monitor -->
   <ellipse cx="300" cy="560" rx="62" ry="10" fill="#000" opacity="0.16"/>

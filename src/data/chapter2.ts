@@ -93,7 +93,7 @@ export const chapter2: SceneData = {
       hotspots: [
         { id: 'photo', area: { x: 16, y: 30, width: 20, height: 18 },
           action: { type: 'examine', text: '写真立ての裏に走り書き ―「1962.04.09 ふたりの始まり」' } },
-        { id: 'drawer', area: { x: 39, y: 60, width: 26, height: 16 },
+        { id: 'drawer', area: { x: 39, y: 60, width: 13, height: 11 },
           action: { type: 'openPuzzle', puzzleId: 'drawerLock' } },
         { id: 'diary', area: { x: 62, y: 40, width: 22, height: 16 },
           requires: { flags: ['drawerOpen'] },
@@ -125,7 +125,7 @@ export const chapter2: SceneData = {
     exitDoor: {
       id: 'exitDoor', image: 'scenes/chapter2/exit-door.svg',
       hotspots: [
-        { id: 'door-lock', area: { x: 40, y: 43, width: 20, height: 16 },
+        { id: 'door-lock', area: { x: 55, y: 48, width: 14, height: 13 },
           action: { type: 'openPuzzle', puzzleId: 'exitDoor' } },
         { id: 'exit-back', area: { x: 80, y: 42, width: 14, height: 16 },
           action: { type: 'navigate', targetNodeId: 'study' } },
