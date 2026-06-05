@@ -1,50 +1,62 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 1280" preserveAspectRatio="xMidYMid slice">
   <defs>
-    <linearGradient id="room" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#0a111c"/><stop offset="0.55" stop-color="#0c1521"/><stop offset="1" stop-color="#04070d"/>
+    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e9edf1"/><stop offset="1" stop-color="#d2d9e0"/>
     </linearGradient>
-    <radialGradient id="green" cx="0.5" cy="0.18" r="0.6">
-      <stop offset="0" stop-color="#48e39a" stop-opacity="0.45"/><stop offset="0.5" stop-color="#1f9d6b" stop-opacity="0.1"/><stop offset="1" stop-color="#1f9d6b" stop-opacity="0"/>
+    <radialGradient id="roomlight" cx="0.5" cy="0.12" r="0.7">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.5"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="vig" cx="0.5" cy="0.46" r="0.72">
-      <stop offset="0.4" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="0.82"/>
-    </radialGradient>
-    <linearGradient id="door" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#1a2c3c"/><stop offset="0.5" stop-color="#24394d"/><stop offset="1" stop-color="#162636"/>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d9c19c"/><stop offset="1" stop-color="#c2a479"/>
     </linearGradient>
-    <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope="0.05"/></feComponentTransfer></filter>
+    <linearGradient id="doorwood" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#cdab7c"/><stop offset="0.5" stop-color="#bd9a66"/><stop offset="1" stop-color="#c6a373"/>
+    </linearGradient>
+    <linearGradient id="frame" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#e6e3dc"/><stop offset="1" stop-color="#d2cdc2"/>
+    </linearGradient>
+    <linearGradient id="handle" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#e4e8ec"/><stop offset="0.5" stop-color="#9aa2ab"/><stop offset="1" stop-color="#cfd5db"/>
+    </linearGradient>
   </defs>
 
-  <rect width="720" height="1280" fill="url(#room)"/>
-  <rect width="720" height="1280" fill="url(#green)"/>
-  <polygon points="0,1010 720,1010 720,1280 0,1280" fill="#070c14"/>
+  <rect width="720" height="1280" fill="url(#wall)"/>
+  <rect width="720" height="1280" fill="url(#roomlight)"/>
+  <rect x="0" y="946" width="720" height="14" fill="#b7bcc2"/>
+  <polygon points="0,960 720,960 720,1280 0,1280" fill="url(#floor)"/>
 
   <!-- right back arrow -->
-  <g stroke="#4fd0e0" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.85">
-    <circle cx="656" cy="640" r="40" fill="#4fd0e0" opacity="0.06" stroke="none"/>
-    <polyline points="644,600 672,640 644,680"/>
+  <rect x="600" y="596" width="76" height="112" rx="16" fill="#000000" opacity="0.08"/>
+  <g stroke="#2f3b46" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.8">
+    <polyline points="630,620 658,652 630,684"/>
   </g>
 
-  <!-- the exit door -->
-  <rect x="150" y="210" width="360" height="800" rx="8" fill="url(#door)" stroke="#42607f" stroke-width="3"/>
-  <rect x="178" y="250" width="304" height="320" rx="6" fill="#0e1c29" stroke="#2c4763" stroke-width="2"/>
-  <rect x="178" y="690" width="304" height="280" rx="6" fill="#0e1c29" stroke="#2c4763" stroke-width="2"/>
   <!-- EXIT sign -->
-  <rect x="276" y="150" width="168" height="46" rx="6" fill="#0c3b2e" stroke="#48e39a" stroke-width="1.5"/>
-  <text x="360" y="183" font-family="Chakra Petch, sans-serif" font-size="28" font-weight="700" fill="#5cf0aa" text-anchor="middle" letter-spacing="4">EXIT</text>
-  <!-- handle -->
-  <rect x="196" y="600" width="14" height="80" rx="7" fill="#6f90b0"/>
+  <rect x="286" y="116" width="148" height="44" rx="6" fill="#1f9d6b" stroke="#157a52" stroke-width="2"/>
+  <text x="360" y="148" font-family="Chakra Petch, sans-serif" font-size="26" font-weight="700" fill="#eafff5" text-anchor="middle" letter-spacing="4">EXIT</text>
 
-  <!-- wall keypad lock (openPuzzle) -->
-  <rect x="288" y="576" width="144" height="192" rx="12" fill="#091420" stroke="#ff9d3c" stroke-width="2.5"/>
-  <rect x="304" y="592" width="112" height="36" rx="5" fill="#06222e"/>
-  <text x="360" y="617" font-family="Chakra Petch, monospace" font-size="22" fill="#4fd0e0" text-anchor="middle" letter-spacing="6">----</text>
-  <g fill="#ffb24d">
-    <circle cx="320" cy="660" r="7"/><circle cx="360" cy="660" r="7"/><circle cx="400" cy="660" r="7"/>
-    <circle cx="320" cy="694" r="7"/><circle cx="360" cy="694" r="7"/><circle cx="400" cy="694" r="7"/>
-    <circle cx="320" cy="728" r="7"/><circle cx="360" cy="728" r="7"/><circle cx="400" cy="728" r="7"/>
+  <!-- door frame + slab -->
+  <rect x="168" y="168" width="384" height="800" rx="4" fill="url(#frame)" stroke="#bdb8ad" stroke-width="2"/>
+  <rect x="190" y="182" width="340" height="786" rx="3" fill="url(#doorwood)" stroke="#a8854f" stroke-width="2"/>
+  <rect x="214" y="214" width="292" height="150" rx="6" fill="#00000018" stroke="#a8854f" stroke-width="2"/>
+  <rect x="214" y="800" width="292" height="140" rx="6" fill="#00000018" stroke="#a8854f" stroke-width="2"/>
+
+  <!-- lever handle -->
+  <ellipse cx="476" cy="600" rx="16" ry="16" fill="url(#handle)"/>
+  <rect x="446" y="594" width="34" height="12" rx="6" fill="url(#handle)"/>
+
+  <!-- wall keypad lock (number pad) -->
+  <rect x="306" y="556" width="108" height="214" rx="12" fill="#242c34" stroke="#3c4651" stroke-width="2"/>
+  <rect x="318" y="568" width="84" height="26" rx="4" fill="#0d2730"/>
+  <text x="360" y="588" font-family="Chakra Petch, monospace" font-size="16" fill="#5fd6e6" text-anchor="middle" letter-spacing="5">----</text>
+  <g font-family="Chakra Petch, sans-serif" font-size="17" fill="#dfe4ea" text-anchor="middle">
+    <g fill="#39434e"><rect x="322" y="606" width="24" height="24" rx="5"/><rect x="348" y="606" width="24" height="24" rx="5"/><rect x="374" y="606" width="24" height="24" rx="5"/>
+      <rect x="322" y="636" width="24" height="24" rx="5"/><rect x="348" y="636" width="24" height="24" rx="5"/><rect x="374" y="636" width="24" height="24" rx="5"/>
+      <rect x="322" y="666" width="24" height="24" rx="5"/><rect x="348" y="666" width="24" height="24" rx="5"/><rect x="374" y="666" width="24" height="24" rx="5"/>
+      <rect x="348" y="696" width="24" height="24" rx="5"/></g>
+    <text x="334" y="623">1</text><text x="360" y="623">2</text><text x="386" y="623">3</text>
+    <text x="334" y="653">4</text><text x="360" y="653">5</text><text x="386" y="653">6</text>
+    <text x="334" y="683">7</text><text x="360" y="683">8</text><text x="386" y="683">9</text>
+    <text x="360" y="713">0</text>
   </g>
-
-  <rect width="720" height="1280" fill="url(#vig)"/>
-  <rect width="720" height="1280" filter="url(#grain)" opacity="0.5"/>
 </svg>

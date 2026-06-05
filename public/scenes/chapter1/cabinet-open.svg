@@ -1,56 +1,65 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 1280" preserveAspectRatio="xMidYMid slice">
   <defs>
-    <linearGradient id="room" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#0a111c"/><stop offset="0.55" stop-color="#0c1521"/><stop offset="1" stop-color="#04070d"/>
+    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e9edf1"/><stop offset="1" stop-color="#d2d9e0"/>
     </linearGradient>
-    <radialGradient id="amber" cx="0.5" cy="0.4" r="0.7">
-      <stop offset="0" stop-color="#ffb24d" stop-opacity="0.35"/><stop offset="0.5" stop-color="#ff8a2b" stop-opacity="0.08"/><stop offset="1" stop-color="#ff8a2b" stop-opacity="0"/>
+    <radialGradient id="roomlight" cx="0.5" cy="0.12" r="0.7">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.5"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="vig" cx="0.5" cy="0.46" r="0.72">
-      <stop offset="0.4" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="0.82"/>
-    </radialGradient>
-    <linearGradient id="metal" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#33485f"/><stop offset="0.5" stop-color="#1c2c3e"/><stop offset="1" stop-color="#2b4057"/>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d9c19c"/><stop offset="1" stop-color="#c2a479"/>
     </linearGradient>
-    <radialGradient id="paper" cx="0.5" cy="0.35" r="0.9">
-      <stop offset="0" stop-color="#fff0c2"/><stop offset="1" stop-color="#e6bd5e"/>
+    <radialGradient id="contact" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#5a4a32" stop-opacity="0.4"/><stop offset="1" stop-color="#5a4a32" stop-opacity="0"/>
     </radialGradient>
-    <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope="0.05"/></feComponentTransfer></filter>
+    <linearGradient id="metalFace" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#d6dbe1"/><stop offset="0.5" stop-color="#bcc3cb"/><stop offset="1" stop-color="#cdd3d9"/>
+    </linearGradient>
+    <linearGradient id="inside" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3c434c"/><stop offset="1" stop-color="#2a3038"/>
+    </linearGradient>
+    <linearGradient id="handle" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#e4e8ec"/><stop offset="0.5" stop-color="#a7afb8"/><stop offset="1" stop-color="#cfd5db"/>
+    </linearGradient>
   </defs>
 
-  <rect width="720" height="1280" fill="url(#room)"/>
-  <rect width="720" height="1280" fill="url(#amber)"/>
+  <rect width="720" height="1280" fill="url(#wall)"/>
+  <rect width="720" height="1280" fill="url(#roomlight)"/>
+  <rect x="0" y="952" width="720" height="14" fill="#b7bcc2"/>
+  <polygon points="0,966 720,966 720,1280 0,1280" fill="url(#floor)"/>
+  <g stroke="#b1936a" stroke-width="2" opacity="0.55">
+    <line x1="160" y1="966" x2="40" y2="1280"/><line x1="560" y1="966" x2="680" y2="1280"/>
+  </g>
+  <ellipse cx="380" cy="966" rx="220" ry="40" fill="url(#contact)"/>
 
   <!-- left back arrow -->
-  <g stroke="#4fd0e0" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.85">
-    <circle cx="64" cy="640" r="40" fill="#4fd0e0" opacity="0.06" stroke="none"/>
-    <polyline points="76,600 48,640 76,680"/>
+  <rect x="14" y="596" width="76" height="112" rx="16" fill="#000000" opacity="0.08"/>
+  <g stroke="#2f3b46" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.8">
+    <polyline points="66,620 38,652 66,684"/>
   </g>
 
-  <!-- open locker frame -->
-  <rect x="180" y="280" width="356" height="740" rx="10" fill="#0a131d" stroke="#42607f" stroke-width="3"/>
-  <rect x="200" y="300" width="316" height="700" rx="6" fill="#060d15"/>
-  <!-- open door swung -->
-  <polygon points="180,300 90,360 90,980 180,1000" fill="url(#metal)" stroke="#42607f" stroke-width="2" opacity="0.9"/>
+  <!-- cabinet carcass + interior -->
+  <rect x="190" y="300" width="330" height="666" fill="url(#metalFace)" stroke="#8b939c" stroke-width="2"/>
+  <rect x="206" y="316" width="298" height="634" rx="3" fill="url(#inside)"/>
+  <!-- open door swung left -->
+  <polygon points="190,300 96,344 96,922 190,966" fill="#c8ced5" stroke="#9aa2ab" stroke-width="2"/>
+  <rect x="170" y="600" width="10" height="70" rx="5" fill="url(#handle)"/>
   <!-- shelves -->
-  <rect x="200" y="500" width="316" height="10" fill="#1a2a3b"/>
-  <rect x="200" y="740" width="316" height="10" fill="#1a2a3b"/>
+  <rect x="206" y="520" width="298" height="10" fill="#171c22"/>
+  <rect x="206" y="744" width="298" height="10" fill="#171c22"/>
 
-  <!-- note half A (left, pickup) -->
-  <g transform="rotate(-7 273 583)">
-    <polygon points="216,520 332,520 326,646 222,640" fill="url(#paper)"/>
-    <line x1="244" y1="556" x2="316" y2="556" stroke="#9a7b2e" stroke-width="4" stroke-linecap="round"/>
-    <line x1="244" y1="584" x2="300" y2="584" stroke="#9a7b2e" stroke-width="4" stroke-linecap="round"/>
-    <polygon points="326,520 332,540 318,560 332,582 322,604 332,624 326,646" fill="#d9b35a"/>
+  <!-- note half A (left pickup) -->
+  <g transform="rotate(-6 270 590)">
+    <polygon points="218,528 326,528 320,650 224,644" fill="#ffe98a"/>
+    <line x1="244" y1="562" x2="312" y2="562" stroke="#b08f3a" stroke-width="4" stroke-linecap="round"/>
+    <line x1="244" y1="588" x2="298" y2="588" stroke="#b08f3a" stroke-width="4" stroke-linecap="round"/>
+    <polygon points="320,528 326,548 312,568 326,590 316,612 326,632 320,650" fill="#e9cf63"/>
   </g>
-  <!-- note half B (right, pickup) -->
-  <g transform="rotate(6 450 583)">
-    <polygon points="396,520 504,524 504,640 402,646" fill="url(#paper)"/>
-    <line x1="420" y1="556" x2="486" y2="556" stroke="#9a7b2e" stroke-width="4" stroke-linecap="round"/>
-    <line x1="420" y1="584" x2="472" y2="584" stroke="#9a7b2e" stroke-width="4" stroke-linecap="round"/>
-    <polygon points="396,520 404,540 392,560 404,582 396,604 404,624 396,646" fill="#d9b35a"/>
+  <!-- note half B (right pickup) -->
+  <g transform="rotate(5 448 590)">
+    <polygon points="396,528 504,532 504,648 402,650" fill="#ffe98a"/>
+    <line x1="420" y1="562" x2="486" y2="562" stroke="#b08f3a" stroke-width="4" stroke-linecap="round"/>
+    <line x1="420" y1="588" x2="472" y2="588" stroke="#b08f3a" stroke-width="4" stroke-linecap="round"/>
+    <polygon points="396,528 404,548 392,568 404,590 396,612 404,632 396,650" fill="#e9cf63"/>
   </g>
-
-  <rect width="720" height="1280" fill="url(#vig)"/>
-  <rect width="720" height="1280" filter="url(#grain)" opacity="0.5"/>
 </svg>

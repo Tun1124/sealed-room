@@ -1,47 +1,60 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 1280" preserveAspectRatio="xMidYMid slice">
   <defs>
-    <linearGradient id="room" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#0a111c"/><stop offset="0.55" stop-color="#0c1521"/><stop offset="1" stop-color="#04070d"/>
+    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e9edf1"/><stop offset="1" stop-color="#d2d9e0"/>
     </linearGradient>
-    <radialGradient id="amber" cx="0.5" cy="0.1" r="0.8">
-      <stop offset="0" stop-color="#ffb24d" stop-opacity="0.4"/><stop offset="0.45" stop-color="#ff8a2b" stop-opacity="0.1"/><stop offset="1" stop-color="#ff8a2b" stop-opacity="0"/>
+    <radialGradient id="roomlight" cx="0.5" cy="0.12" r="0.7">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.5"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="vig" cx="0.5" cy="0.46" r="0.72">
-      <stop offset="0.4" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="0.82"/>
-    </radialGradient>
-    <linearGradient id="metal" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#33485f"/><stop offset="0.5" stop-color="#1c2c3e"/><stop offset="1" stop-color="#2b4057"/>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d9c19c"/><stop offset="1" stop-color="#c2a479"/>
     </linearGradient>
-    <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope="0.05"/></feComponentTransfer></filter>
+    <radialGradient id="contact" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#5a4a32" stop-opacity="0.4"/><stop offset="1" stop-color="#5a4a32" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="metalFace" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#d6dbe1"/><stop offset="0.5" stop-color="#bcc3cb"/><stop offset="1" stop-color="#cdd3d9"/>
+    </linearGradient>
+    <linearGradient id="metalSide" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#9aa2ab"/><stop offset="1" stop-color="#838c96"/>
+    </linearGradient>
+    <linearGradient id="handle" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#e4e8ec"/><stop offset="0.5" stop-color="#a7afb8"/><stop offset="1" stop-color="#cfd5db"/>
+    </linearGradient>
   </defs>
 
-  <rect width="720" height="1280" fill="url(#room)"/>
-  <rect width="720" height="1280" fill="url(#amber)"/>
-  <polygon points="0,1000 720,1000 720,1280 0,1280" fill="#070c14"/>
+  <rect width="720" height="1280" fill="url(#wall)"/>
+  <rect width="720" height="1280" fill="url(#roomlight)"/>
+  <rect x="0" y="952" width="720" height="14" fill="#b7bcc2"/>
+  <polygon points="0,966 720,966 720,1280 0,1280" fill="url(#floor)"/>
+  <g stroke="#b1936a" stroke-width="2" opacity="0.55">
+    <line x1="160" y1="966" x2="40" y2="1280"/><line x1="560" y1="966" x2="680" y2="1280"/><line x1="0" y1="1120" x2="720" y2="1120" opacity="0.5"/>
+  </g>
+  <ellipse cx="356" cy="966" rx="210" ry="40" fill="url(#contact)"/>
 
   <!-- left back arrow -->
-  <g stroke="#4fd0e0" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.85">
-    <circle cx="64" cy="640" r="40" fill="#4fd0e0" opacity="0.06" stroke="none"/>
-    <polyline points="76,600 48,640 76,680"/>
+  <rect x="14" y="596" width="76" height="112" rx="16" fill="#000000" opacity="0.08"/>
+  <g stroke="#2f3b46" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.8">
+    <polyline points="66,620 38,652 66,684"/>
   </g>
 
-  <!-- tall locker -->
-  <rect x="196" y="300" width="324" height="700" rx="10" fill="url(#metal)" stroke="#42607f" stroke-width="3"/>
-  <rect x="196" y="300" width="324" height="40" rx="10" fill="#0c1420" opacity="0.5"/>
-  <line x1="358" y1="312" x2="358" y2="988" stroke="#0a121b" stroke-width="4"/>
+  <!-- storage cabinet -->
+  <polygon points="190,300 520,300 542,322 168,322" fill="#aeb6bf"/>
+  <polygon points="520,300 542,322 542,946 520,966" fill="url(#metalSide)"/>
+  <rect x="190" y="300" width="330" height="666" fill="url(#metalFace)" stroke="#8b939c" stroke-width="2"/>
+  <!-- doors -->
+  <rect x="200" y="312" width="150" height="642" rx="3" fill="#c8ced5" stroke="#9aa2ab" stroke-width="2"/>
+  <rect x="360" y="312" width="150" height="642" rx="3" fill="#c8ced5" stroke="#9aa2ab" stroke-width="2"/>
   <!-- vents -->
-  <g stroke="#0c1722" stroke-width="3">
-    <line x1="240" y1="370" x2="330" y2="370"/><line x1="240" y1="390" x2="330" y2="390"/><line x1="240" y1="410" x2="330" y2="410"/>
-    <line x1="386" y1="370" x2="476" y2="370"/><line x1="386" y1="390" x2="476" y2="390"/><line x1="386" y1="410" x2="476" y2="410"/>
+  <g stroke="#9aa2ab" stroke-width="4" stroke-linecap="round">
+    <line x1="240" y1="356" x2="310" y2="356"/><line x1="240" y1="374" x2="310" y2="374"/><line x1="240" y1="392" x2="310" y2="392"/>
+    <line x1="400" y1="356" x2="470" y2="356"/><line x1="400" y1="374" x2="470" y2="374"/><line x1="400" y1="392" x2="470" y2="392"/>
   </g>
   <!-- handles -->
-  <rect x="330" y="600" width="12" height="90" rx="6" fill="#6f90b0"/>
-  <rect x="374" y="600" width="12" height="90" rx="6" fill="#6f90b0"/>
-  <!-- lock cylinder glowing -->
-  <circle cx="358" cy="560" r="26" fill="#0a131d" stroke="#ff9d3c" stroke-width="2.5"/>
-  <circle cx="358" cy="554" r="6" fill="#ffb24d"/>
-  <rect x="354" y="556" width="8" height="18" rx="3" fill="#ffb24d"/>
-
-  <rect width="720" height="1280" fill="url(#vig)"/>
-  <rect width="720" height="1280" filter="url(#grain)" opacity="0.5"/>
+  <rect x="332" y="560" width="12" height="96" rx="6" fill="url(#handle)"/>
+  <rect x="366" y="560" width="12" height="96" rx="6" fill="url(#handle)"/>
+  <!-- keyhole lock (opens with the key) -->
+  <circle cx="355" cy="528" r="20" fill="#5a6470" stroke="#3f4854" stroke-width="2"/>
+  <circle cx="355" cy="523" r="5" fill="#222a32"/>
+  <rect x="352" y="525" width="6" height="15" rx="2" fill="#222a32"/>
 </svg>
