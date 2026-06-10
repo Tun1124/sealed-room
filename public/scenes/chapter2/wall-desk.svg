@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 1280" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="wallV" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#efe7da"/><stop offset="0.62" stop-color="#e3d8c5"/><stop offset="1" stop-color="#d3c6ad"/>
+    </linearGradient>
+    <linearGradient id="cornerShade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#9c8a6a" stop-opacity="0.5"/><stop offset="0.2" stop-color="#9c8a6a" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="cornerShadeR" x1="1" y1="0" x2="0" y2="0">
+      <stop offset="0" stop-color="#9c8a6a" stop-opacity="0.5"/><stop offset="0.2" stop-color="#9c8a6a" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="topLight" cx="0.5" cy="0.05" r="0.85">
+      <stop offset="0" stop-color="#fff7e8" stop-opacity="0.55"/><stop offset="1" stop-color="#fff7e8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="vignette" cx="0.5" cy="0.46" r="0.74">
+      <stop offset="0.52" stop-color="#241a10" stop-opacity="0"/><stop offset="1" stop-color="#241a10" stop-opacity="0.34"/>
+    </radialGradient>
+    <linearGradient id="floorW" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#b6976a"/><stop offset="1" stop-color="#977853"/>
+    </linearGradient>
+    <radialGradient id="contact" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#241a10" stop-opacity="0.34"/><stop offset="1" stop-color="#241a10" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="wood" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9c6f3f"/><stop offset="1" stop-color="#7c5530"/>
+    </linearGradient>
+    <linearGradient id="woodDark" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#6f4c2a"/><stop offset="1" stop-color="#553a20"/>
+    </linearGradient>
+    <linearGradient id="brass" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f0d99a"/><stop offset="0.5" stop-color="#c9a44f"/><stop offset="1" stop-color="#e6c87f"/>
+    </linearGradient>
+  </defs>
+
+  <!-- room -->
+  <rect width="720" height="1280" fill="url(#wallV)"/>
+  <rect width="720" height="1280" fill="url(#topLight)"/>
+  <rect width="720" height="1280" fill="url(#cornerShade)"/>
+  <rect width="720" height="1280" fill="url(#cornerShadeR)"/>
+  <rect x="0" y="858" width="720" height="8" fill="#7c6038" opacity="0.7"/>
+  <polygon points="0,866 720,866 720,1280 0,1280" fill="url(#floorW)"/>
+  <g stroke="#6f5634" stroke-width="2" opacity="0.22">
+    <line x1="120" y1="866" x2="-60" y2="1280"/><line x1="320" y1="866" x2="270" y2="1280"/>
+    <line x1="430" y1="866" x2="520" y2="1280"/><line x1="610" y1="866" x2="820" y2="1280"/>
+    <line x1="0" y1="1030" x2="720" y2="1030" opacity="0.6"/>
+  </g>
+  <rect width="720" height="1280" fill="url(#vignette)"/>
+
+  <!-- framed portrait -->
+  <rect x="282" y="196" width="156" height="214" rx="5" fill="url(#brass)" stroke="#a8842f" stroke-width="4"/>
+  <rect x="300" y="214" width="120" height="178" fill="#33414c"/>
+  <circle cx="360" cy="290" r="34" fill="#7c8a96"/>
+  <path d="M312 392 q48 -66 96 0 z" fill="#6a7884"/>
+  <text x="408" y="386" font-family="Chakra Petch, monospace" font-size="11" fill="#cdb89a" text-anchor="end">IV : XVIII</text>
+
+  <!-- rug -->
+  <ellipse cx="360" cy="1140" rx="232" ry="80" fill="#7a3b34"/>
+  <ellipse cx="360" cy="1140" rx="232" ry="80" fill="none" stroke="#caa46a" stroke-width="6" opacity="0.7"/>
+  <ellipse cx="360" cy="1140" rx="180" ry="60" fill="none" stroke="#e7d2a6" stroke-width="3" opacity="0.5"/>
+  <ellipse cx="360" cy="1140" rx="100" ry="32" fill="#9c4a40"/>
+
+  <!-- desk (tap to inspect) -->
+  <ellipse cx="360" cy="892" rx="220" ry="40" fill="url(#contact)"/>
+  <polygon points="206,648 514,648 566,704 154,704" fill="url(#wood)" stroke="#6f4c2a" stroke-width="2"/>
+  <polygon points="206,648 514,648 506,662 214,662" fill="#b98a52" opacity="0.5"/>
+  <rect x="154" y="704" width="412" height="30" fill="url(#woodDark)"/>
+  <rect x="170" y="734" width="46" height="158" fill="url(#woodDark)"/>
+  <rect x="504" y="734" width="46" height="158" fill="url(#woodDark)"/>
+  <!-- drawer block + pull on the desk front -->
+  <rect x="300" y="734" width="170" height="150" rx="4" fill="#6f4c2a" stroke="#553a20" stroke-width="2"/>
+  <rect x="316" y="752" width="138" height="54" rx="3" fill="#7c5530"/>
+  <rect x="362" y="775" width="46" height="9" rx="4.5" fill="#caa46a"/>
+  <rect x="316" y="818" width="138" height="54" rx="3" fill="#7c5530"/>
+  <rect x="362" y="841" width="46" height="9" rx="4.5" fill="#caa46a"/>
+  <!-- desk lamp -->
+  <rect x="232" y="612" width="46" height="40" rx="6" fill="#3f6b57"/>
+  <rect x="240" y="604" width="30" height="12" rx="3" fill="#2f5040"/>
+
+  <!-- turn arrows -->
+  <g stroke="#5a4730" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.6">
+    <polyline points="50,612 24,644 50,676"/>
+    <polyline points="670,612 696,644 670,676"/>
+  </g>
+</svg>

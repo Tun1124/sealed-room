@@ -20,7 +20,7 @@ import type { SceneData } from '../engine/types';
 export const chapter2: SceneData = {
   id: 'chapter2',
   title: '祖父の書斎',
-  startNodeId: 'study',
+  startNodeId: 'wall-desk',
   winFlag: 'escaped',
   items: {
     deskKey: { id: 'deskKey', name: '机の小鍵', icon: '🔑', description: '机の小箱に合いそうな小さな鍵。' },
@@ -73,24 +73,47 @@ export const chapter2: SceneData = {
     { inputs: ['letterA', 'letterB'], output: 'fullLetter', message: '手紙が繋がった ―「玄関の番号は、命日を 日→月 の順に」' },
   ],
   nodes: {
-    study: {
-      id: 'study', image: 'scenes/chapter2/study.svg',
+    // ===== 書斎を3つの壁に分割（← → で振り向く） =====
+    'wall-desk': {
+      id: 'wall-desk', image: 'scenes/chapter2/wall-desk.svg',
       hotspots: [
-        { id: 'to-desk', area: { x: 30, y: 56, width: 34, height: 18 },
+        { id: 'to-deskCloseup', area: { x: 22, y: 50, width: 56, height: 30 },
           action: { type: 'navigate', targetNodeId: 'deskCloseup' } },
-        { id: 'clock', area: { x: 43, y: 13, width: 14, height: 16 },
-          action: { type: 'openPuzzle', puzzleId: 'clockLock' } },
-        { id: 'painting', area: { x: 60, y: 15, width: 13, height: 15 },
+        { id: 'painting', area: { x: 38, y: 14, width: 24, height: 18 },
           action: { type: 'examine', text: '祖父の遺影。額の隅に走り書き ―「IV 時 XVIII 分、時は止まった」' } },
-        { id: 'rug', area: { x: 34, y: 83, width: 30, height: 13 },
+        { id: 'rug', area: { x: 26, y: 82, width: 48, height: 14 },
           action: { type: 'pickup', itemId: 'deskKey' } },
-        { id: 'to-shelf', area: { x: 5, y: 30, width: 21, height: 44 },
+        { id: 'turn-left', area: { x: 1, y: 45, width: 12, height: 14 },
+          action: { type: 'navigate', targetNodeId: 'wall-door' } },
+        { id: 'turn-right', area: { x: 87, y: 45, width: 12, height: 14 },
+          action: { type: 'navigate', targetNodeId: 'wall-shelf' } },
+      ],
+    },
+    'wall-shelf': {
+      id: 'wall-shelf', image: 'scenes/chapter2/wall-shelf.svg',
+      hotspots: [
+        { id: 'to-shelf', area: { x: 24, y: 22, width: 52, height: 54 },
           action: { type: 'navigate', targetNodeId: 'shelf' } },
-        { id: 'to-attic', area: { x: 38, y: 1, width: 24, height: 9 },
+        { id: 'to-attic', area: { x: 35, y: 2, width: 30, height: 11 },
           requires: { hasItems: ['brassKey'] }, useItem: 'brassKey',
           action: { type: 'navigate', targetNodeId: 'attic' } },
-        { id: 'to-exit', area: { x: 74, y: 28, width: 22, height: 48 },
+        { id: 'turn-left', area: { x: 1, y: 45, width: 12, height: 14 },
+          action: { type: 'navigate', targetNodeId: 'wall-desk' } },
+        { id: 'turn-right', area: { x: 87, y: 45, width: 12, height: 14 },
+          action: { type: 'navigate', targetNodeId: 'wall-door' } },
+      ],
+    },
+    'wall-door': {
+      id: 'wall-door', image: 'scenes/chapter2/wall-door.svg',
+      hotspots: [
+        { id: 'to-exit', area: { x: 32, y: 16, width: 40, height: 62 },
           action: { type: 'navigate', targetNodeId: 'exitDoor' } },
+        { id: 'clock', area: { x: 7, y: 19, width: 19, height: 26 },
+          action: { type: 'openPuzzle', puzzleId: 'clockLock' } },
+        { id: 'turn-left', area: { x: 1, y: 45, width: 12, height: 14 },
+          action: { type: 'navigate', targetNodeId: 'wall-shelf' } },
+        { id: 'turn-right', area: { x: 87, y: 45, width: 12, height: 14 },
+          action: { type: 'navigate', targetNodeId: 'wall-desk' } },
       ],
     },
     deskCloseup: {
@@ -104,7 +127,7 @@ export const chapter2: SceneData = {
           requires: { hasItems: ['deskKey'] }, useItem: 'deskKey',
           action: { type: 'pickup', itemId: 'magnifier' } },
         { id: 'desk-back', area: { x: 3, y: 44, width: 12, height: 16 },
-          action: { type: 'navigate', targetNodeId: 'study' } },
+          action: { type: 'navigate', targetNodeId: 'wall-desk' } },
       ],
     },
     shelf: {
@@ -118,7 +141,7 @@ export const chapter2: SceneData = {
           requires: { hasItems: ['crank'] }, useItem: 'crank',
           action: { type: 'navigate', targetNodeId: 'hiddenRoom' } },
         { id: 'shelf-back', area: { x: 3, y: 44, width: 12, height: 16 },
-          action: { type: 'navigate', targetNodeId: 'study' } },
+          action: { type: 'navigate', targetNodeId: 'wall-shelf' } },
       ],
     },
     attic: {
@@ -127,7 +150,7 @@ export const chapter2: SceneData = {
         { id: 'trunk', area: { x: 30, y: 48, width: 40, height: 28 },
           action: { type: 'openPuzzle', puzzleId: 'trunkLock' } },
         { id: 'attic-back', area: { x: 3, y: 44, width: 12, height: 16 },
-          action: { type: 'navigate', targetNodeId: 'study' } },
+          action: { type: 'navigate', targetNodeId: 'wall-shelf' } },
       ],
     },
     hiddenRoom: {
@@ -145,7 +168,7 @@ export const chapter2: SceneData = {
         { id: 'door-lock', area: { x: 55, y: 48, width: 14, height: 13 },
           action: { type: 'openPuzzle', puzzleId: 'exitDoor' } },
         { id: 'exit-back', area: { x: 80, y: 42, width: 14, height: 16 },
-          action: { type: 'navigate', targetNodeId: 'study' } },
+          action: { type: 'navigate', targetNodeId: 'wall-door' } },
       ],
     },
   },

@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 1280" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="wallV" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#efe7da"/><stop offset="0.62" stop-color="#e3d8c5"/><stop offset="1" stop-color="#d3c6ad"/>
+    </linearGradient>
+    <linearGradient id="cornerShade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#9c8a6a" stop-opacity="0.5"/><stop offset="0.2" stop-color="#9c8a6a" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="cornerShadeR" x1="1" y1="0" x2="0" y2="0">
+      <stop offset="0" stop-color="#9c8a6a" stop-opacity="0.5"/><stop offset="0.2" stop-color="#9c8a6a" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="topLight" cx="0.5" cy="0.05" r="0.85">
+      <stop offset="0" stop-color="#fff7e8" stop-opacity="0.55"/><stop offset="1" stop-color="#fff7e8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="vignette" cx="0.5" cy="0.46" r="0.74">
+      <stop offset="0.52" stop-color="#241a10" stop-opacity="0"/><stop offset="1" stop-color="#241a10" stop-opacity="0.34"/>
+    </radialGradient>
+    <linearGradient id="floorW" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#b6976a"/><stop offset="1" stop-color="#977853"/>
+    </linearGradient>
+    <radialGradient id="contact" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#241a10" stop-opacity="0.34"/><stop offset="1" stop-color="#241a10" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="doorwood" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#9c6f3f"/><stop offset="0.5" stop-color="#825a32"/><stop offset="1" stop-color="#925f32"/>
+    </linearGradient>
+    <linearGradient id="frame" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#d8c8af"/><stop offset="1" stop-color="#c2b094"/>
+    </linearGradient>
+    <linearGradient id="woodDark" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#6f4c2a"/><stop offset="1" stop-color="#553a20"/>
+    </linearGradient>
+    <linearGradient id="brass" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f0d99a"/><stop offset="0.5" stop-color="#c9a44f"/><stop offset="1" stop-color="#e6c87f"/>
+    </linearGradient>
+    <radialGradient id="clockFace" cx="0.4" cy="0.35" r="0.8">
+      <stop offset="0" stop-color="#fbf4e2"/><stop offset="1" stop-color="#e6dabd"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="720" height="1280" fill="url(#wallV)"/>
+  <rect width="720" height="1280" fill="url(#topLight)"/>
+  <rect width="720" height="1280" fill="url(#cornerShade)"/>
+  <rect width="720" height="1280" fill="url(#cornerShadeR)"/>
+  <rect x="0" y="940" width="720" height="8" fill="#7c6038" opacity="0.7"/>
+  <polygon points="0,948 720,948 720,1280 0,1280" fill="url(#floorW)"/>
+  <rect width="720" height="1280" fill="url(#vignette)"/>
+
+  <!-- pendulum clock on the wall (left of the door) -->
+  <rect x="70" y="250" width="120" height="330" rx="16" fill="url(#woodDark)" stroke="#46301a" stroke-width="4"/>
+  <rect x="86" y="266" width="88" height="150" rx="10" fill="#2e2014"/>
+  <circle cx="130" cy="338" r="56" fill="url(#clockFace)" stroke="#b59a63" stroke-width="4"/>
+  <circle cx="130" cy="338" r="4" fill="#3a2c18"/>
+  <line x1="130" y1="338" x2="130" y2="306" stroke="#3a2c18" stroke-width="4" stroke-linecap="round"/>
+  <line x1="130" y1="338" x2="152" y2="348" stroke="#3a2c18" stroke-width="4" stroke-linecap="round"/>
+  <g stroke="#7c6038" stroke-width="2.5">
+    <line x1="130" y1="290" x2="130" y2="298"/><line x1="178" y1="338" x2="170" y2="338"/>
+    <line x1="130" y1="386" x2="130" y2="378"/><line x1="82" y1="338" x2="90" y2="338"/>
+  </g>
+  <rect x="127" y="430" width="6" height="110" fill="url(#brass)"/>
+  <circle cx="130" cy="548" r="20" fill="url(#brass)" stroke="#a8842f" stroke-width="2"/>
+
+  <!-- grand entrance door (tap to approach the lock) -->
+  <ellipse cx="412" cy="958" rx="190" ry="34" fill="url(#contact)"/>
+  <rect x="246" y="214" width="332" height="744" rx="6" fill="url(#frame)" stroke="#b3a184" stroke-width="4"/>
+  <rect x="270" y="236" width="284" height="722" rx="4" fill="url(#doorwood)" stroke="#5f3f22" stroke-width="3"/>
+  <!-- fanlight -->
+  <rect x="294" y="258" width="236" height="74" rx="6" fill="#cfe0e8" stroke="#5f3f22" stroke-width="2"/>
+  <g stroke="#5f3f22" stroke-width="3"><line x1="412" y1="258" x2="412" y2="332"/><line x1="353" y1="258" x2="353" y2="332"/><line x1="471" y1="258" x2="471" y2="332"/></g>
+  <!-- panels -->
+  <rect x="300" y="368" width="224" height="240" rx="6" fill="#00000018" stroke="#5f3f22" stroke-width="2"/>
+  <rect x="300" y="650" width="224" height="288" rx="6" fill="#00000018" stroke="#5f3f22" stroke-width="2"/>
+  <!-- knob -->
+  <circle cx="296" cy="600" r="15" fill="url(#brass)" stroke="#a8842f" stroke-width="2"/>
+
+  <!-- turn arrows -->
+  <g stroke="#5a4730" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.6">
+    <polyline points="50,612 24,644 50,676"/>
+    <polyline points="670,612 696,644 670,676"/>
+  </g>
+</svg>
