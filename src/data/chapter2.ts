@@ -1,16 +1,21 @@
 import type { SceneData } from '../engine/types';
 
 /**
- * チャプター2「祖父の書斎 ― 遺言」
+ * チャプター2「祖父の書斎 ― 遺言」（歯ごたえ版・約20〜30分）
+ *
  * 依存グラフ（循環なし・全て到達可能）:
- *   写真(0409) → 引き出し → ライター+便箋, diary解放
- *   diary → 振り子時計(0418) → 真鍮の鍵
- *   ライター+便箋 → 炙り出し(7294)
- *   真鍮の鍵 → 屋根裏 → トランク(7294) → クランク+手紙A
- *   クランク → 本棚回転 → 隠し部屋 → 手紙B
- *   手紙A+手紙B → 復元手紙(1962)
- *   隠し部屋の金庫(1962) → 遺言状(玄関番号 3725)
- *   玄関扉(3725) → 脱出(escaped)
+ *   ラグ → 机の小鍵
+ *   写真 → 「1962.04.09 結ばれた日」      引き出し=結ばれた"年"=1962
+ *   絵(遺影) → ローマ数字 IV:XVIII         時計=0418
+ *   本棚(shelf) → 背の色＋発行年, 手紙B    金庫=古い順の色=青緑赤黄
+ *   引き出し(1962) → ライター+便箋
+ *   小箱(小鍵) → 虫眼鏡
+ *   ライター+便箋 → 炙り跡(小さすぎ)
+ *   虫眼鏡+炙り跡 → 拡大図『Z』            トランク=パターンZ
+ *   時計(0418) → 真鍮の鍵 → 屋根裏 → トランク(Z) → クランク+手紙A
+ *   クランク → 本棚回転 → 隠し部屋 → 金庫(色) → 遺言状(命日 1987.3.25)
+ *   手紙A+手紙B → 復元手紙(玄関は命日を 日→月 の順)
+ *   玄関(2503 = 日25・月03) → 脱出
  */
 export const chapter2: SceneData = {
   id: 'chapter2',
@@ -18,34 +23,35 @@ export const chapter2: SceneData = {
   startNodeId: 'study',
   winFlag: 'escaped',
   items: {
-    lighter: { id: 'lighter', name: 'ライター', icon: '🔥', description: '古いオイルライター。何かを炙れそうだ。' },
-    blankLetter: { id: 'blankLetter', name: '古い便箋', icon: '📃', description: '一見、何も書かれていない。' },
-    revealedLetter: { id: 'revealedLetter', name: '炙り出した便箋', icon: '🧾', description: '焦げ跡で「Z」の図形が浮かんだ。' },
+    deskKey: { id: 'deskKey', name: '机の小鍵', icon: '🔑', description: '机の小箱に合いそうな小さな鍵。' },
+    lighter: { id: 'lighter', name: 'ライター', icon: '🔥', description: 'オイルライター。何かを炙れる。' },
+    blankLetter: { id: 'blankLetter', name: '古い便箋', icon: '📃', description: '白紙の便箋。炙ると何か出るかも。' },
+    magnifier: { id: 'magnifier', name: '虫眼鏡', icon: '🔎', description: '細かな跡を拡大して読める。' },
+    revealedNote: { id: 'revealedNote', name: '炙り出した便箋', icon: '🧾', description: 'ごく小さな模様が浮かぶが、読むには拡大が要る。' },
+    cipherNote: { id: 'cipherNote', name: '拡大した図', icon: '🔬', description: '点を結ぶ「Z」の形。' },
     brassKey: { id: 'brassKey', name: '真鍮の鍵', icon: '🗝️', description: '屋根裏のハッチに合いそうだ。' },
-    crank: { id: 'crank', name: '鉄のクランク', icon: '🔧', description: '何かの軸を回す道具。本棚に使えそうだ。' },
-    letterA: { id: 'letterA', name: '手紙の上半分', icon: '📄', description: '「結ばれた…」' },
-    letterB: { id: 'letterB', name: '手紙の下半分', icon: '📄', description: '「…年に立ち返れ」' },
-    fullLetter: { id: 'fullLetter', name: '復元した手紙', icon: '📝', description: '金庫の色は 青→赤→黄→緑 の順。' },
-    will: { id: 'will', name: '遺言状', icon: '📜', description: '玄関の番号: 3725' },
+    crank: { id: 'crank', name: '鉄のクランク', icon: '🔧', description: '本棚の軸を回せそう。' },
+    letterA: { id: 'letterA', name: '手紙の上半分', icon: '📄', description: '「玄関の番号は…」' },
+    letterB: { id: 'letterB', name: '手紙の下半分', icon: '📄', description: '「…命日を 日→月 の順に」' },
+    fullLetter: { id: 'fullLetter', name: '復元した手紙', icon: '📝', description: '玄関の番号は、命日を 日→月 の順に（4桁）。' },
+    will: { id: 'will', name: '遺言状', icon: '📜', description: '命日 ― 1987年3月25日。' },
   },
   puzzles: {
     drawerLock: {
-      id: 'drawerLock', type: 'code', solution: '0409',
+      id: 'drawerLock', type: 'code', solution: '1962', title: '引き出し ― 結ばれた年',
       onSolve: { setFlags: ['drawerOpen'], giveItems: ['lighter', 'blankLetter'],
         message: '引き出しが開いた。ライターと古い便箋を手に入れた。' },
     },
     clockLock: {
-      id: 'clockLock', type: 'code', solution: '0418',
-      onSolve: { giveItems: ['brassKey'], message: '時計の文字盤が外れ、真鍮の鍵が出てきた。' },
+      id: 'clockLock', type: 'code', solution: '0418', title: '振り子時計',
+      onSolve: { giveItems: ['brassKey'], message: '文字盤の奥から真鍮の鍵が出てきた。' },
     },
-    // パターン錠（Android解除風）。Z の形＝0-1-2-4-6-7-8
     trunkLock: {
-      id: 'trunkLock', type: 'pattern', gridSize: 3, solution: '0124678', title: 'TRUNK — パターン',
-      onSolve: { giveItems: ['crank', 'letterA'], message: 'トランクが開いた。クランクと手紙の上半分を手に入れた。' },
+      id: 'trunkLock', type: 'pattern', gridSize: 3, solution: '0124678', title: 'トランク ― パターン',
+      onSolve: { giveItems: ['crank', 'letterA'], message: 'トランクが開いた。クランクと手紙の上半分。' },
     },
-    // カラー順序錠。青→赤→黄→緑 ＝ options[1,0,2,3]
     safeLock: {
-      id: 'safeLock', type: 'colors', solution: '1023', title: 'SAFE — 色の順',
+      id: 'safeLock', type: 'colors', solution: '1302', title: '壁金庫 ― 色の順',
       options: [
         { color: '#d6453c' }, // 0 赤
         { color: '#3a73d6' }, // 1 青
@@ -54,37 +60,36 @@ export const chapter2: SceneData = {
         { color: '#8a5fbf' }, // 4 紫
       ],
       onSolve: { setFlags: ['safeOpen'], giveItems: ['will'],
-        message: '金庫が開いた。遺言状が出てきた ― 玄関の番号は「3725」。' },
+        message: '金庫が開いた。遺言状 ― 命日は「1987年3月25日」。' },
     },
     exitDoor: {
-      id: 'exitDoor', type: 'code', solution: '3725',
+      id: 'exitDoor', type: 'code', solution: '2503', title: '玄関 ― 暗証番号',
       onSolve: { setFlags: ['escaped'], message: '玄関のロックが解けた。脱出成功！' },
     },
   },
   combinations: [
-    { inputs: ['lighter', 'blankLetter'], output: 'revealedLetter', message: '便箋を炙ると焦げ跡が浮かんだ ― 点を「Z」の形になぞれ！' },
-    { inputs: ['letterA', 'letterB'], output: 'fullLetter', message: '手紙がつながった ― 金庫の色は「青→赤→黄→緑」の順。' },
+    { inputs: ['lighter', 'blankLetter'], output: 'revealedNote', message: '便箋を炙ると、ごく小さな模様が浮かんだ。虫眼鏡が要りそうだ。' },
+    { inputs: ['magnifier', 'revealedNote'], output: 'cipherNote', message: '拡大すると、点を結ぶ「Z」の図形が現れた。' },
+    { inputs: ['letterA', 'letterB'], output: 'fullLetter', message: '手紙が繋がった ―「玄関の番号は、命日を 日→月 の順に」' },
   ],
   nodes: {
     study: {
       id: 'study', image: 'scenes/chapter2/study.svg',
       hotspots: [
-        // 振り子時計（暗証4桁）
-        { id: 'clock', area: { x: 43, y: 13, width: 14, height: 14 },
-          action: { type: 'openPuzzle', puzzleId: 'clockLock' } },
-        // 机に寄る
-        { id: 'to-desk', area: { x: 34, y: 56, width: 32, height: 22 },
+        { id: 'to-desk', area: { x: 30, y: 56, width: 34, height: 18 },
           action: { type: 'navigate', targetNodeId: 'deskCloseup' } },
-        // 本棚 → クランクを選んで回すと隠し部屋へ
-        { id: 'to-hidden', area: { x: 4, y: 30, width: 22, height: 46 },
-          requires: { hasItems: ['crank'] }, useItem: 'crank',
-          action: { type: 'navigate', targetNodeId: 'hiddenRoom' } },
-        // 屋根裏ハッチ → 真鍮の鍵を選んで開ける
+        { id: 'clock', area: { x: 43, y: 13, width: 14, height: 16 },
+          action: { type: 'openPuzzle', puzzleId: 'clockLock' } },
+        { id: 'painting', area: { x: 60, y: 15, width: 13, height: 15 },
+          action: { type: 'examine', text: '祖父の遺影。額の隅に走り書き ―「IV 時 XVIII 分、時は止まった」' } },
+        { id: 'rug', area: { x: 34, y: 83, width: 30, height: 13 },
+          action: { type: 'pickup', itemId: 'deskKey' } },
+        { id: 'to-shelf', area: { x: 5, y: 30, width: 21, height: 44 },
+          action: { type: 'navigate', targetNodeId: 'shelf' } },
         { id: 'to-attic', area: { x: 38, y: 1, width: 24, height: 9 },
           requires: { hasItems: ['brassKey'] }, useItem: 'brassKey',
           action: { type: 'navigate', targetNodeId: 'attic' } },
-        // 玄関扉
-        { id: 'to-exit', area: { x: 74, y: 28, width: 22, height: 50 },
+        { id: 'to-exit', area: { x: 74, y: 28, width: 22, height: 48 },
           action: { type: 'navigate', targetNodeId: 'exitDoor' } },
       ],
     },
@@ -92,13 +97,27 @@ export const chapter2: SceneData = {
       id: 'deskCloseup', image: 'scenes/chapter2/desk-closeup.svg',
       hotspots: [
         { id: 'photo', area: { x: 16, y: 30, width: 20, height: 18 },
-          action: { type: 'examine', text: '写真立ての裏に走り書き ―「1962.04.09 ふたりの始まり」' } },
+          action: { type: 'examine', text: '古い写真の裏に走り書き ―「1962.04.09 ふたりが結ばれた日」' } },
         { id: 'drawer', area: { x: 39, y: 60, width: 13, height: 11 },
           action: { type: 'openPuzzle', puzzleId: 'drawerLock' } },
-        { id: 'diary', area: { x: 62, y: 40, width: 22, height: 16 },
-          requires: { flags: ['drawerOpen'] },
-          action: { type: 'examine', text: '日記：「針は終焉を指す ― 4時18分」「過去はすべて屋根裏に」「本棚は腕力では動かぬ。軸を回せ」' } },
+        { id: 'desk-box', area: { x: 60, y: 38, width: 22, height: 18 },
+          requires: { hasItems: ['deskKey'] }, useItem: 'deskKey',
+          action: { type: 'pickup', itemId: 'magnifier' } },
         { id: 'desk-back', area: { x: 3, y: 44, width: 12, height: 16 },
+          action: { type: 'navigate', targetNodeId: 'study' } },
+      ],
+    },
+    shelf: {
+      id: 'shelf', image: 'scenes/chapter2/shelf.svg',
+      hotspots: [
+        { id: 'books', area: { x: 24, y: 22, width: 54, height: 40 },
+          action: { type: 'examine', text: '蔵書が四冊。背の色と発行年 ― 赤1928 / 青1903 / 黄1951 / 緑1917。挟まれた紙片に「古き順に色を辿れ」' } },
+        { id: 'pick-letterB', area: { x: 60, y: 64, width: 16, height: 16 },
+          action: { type: 'pickup', itemId: 'letterB' } },
+        { id: 'shelf-rotate', area: { x: 6, y: 40, width: 14, height: 40 },
+          requires: { hasItems: ['crank'] }, useItem: 'crank',
+          action: { type: 'navigate', targetNodeId: 'hiddenRoom' } },
+        { id: 'shelf-back', area: { x: 3, y: 44, width: 12, height: 16 },
           action: { type: 'navigate', targetNodeId: 'study' } },
       ],
     },
@@ -116,10 +135,8 @@ export const chapter2: SceneData = {
       hotspots: [
         { id: 'safe', area: { x: 37, y: 33, width: 26, height: 24 },
           action: { type: 'openPuzzle', puzzleId: 'safeLock' } },
-        { id: 'pick-letterB', area: { x: 66, y: 50, width: 16, height: 16 },
-          action: { type: 'pickup', itemId: 'letterB' } },
         { id: 'hidden-back', area: { x: 3, y: 44, width: 12, height: 16 },
-          action: { type: 'navigate', targetNodeId: 'study' } },
+          action: { type: 'navigate', targetNodeId: 'shelf' } },
       ],
     },
     exitDoor: {

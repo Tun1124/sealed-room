@@ -36,6 +36,24 @@ export class Renderer {
     this.state = state;
     this.renderStage(state);
     this.renderInventory(state);
+    this.showItemClue(this.selectedItem);
+  }
+
+  /** 持ち物の手がかりを再表示するポップオーバー（間接謎の救済）。 */
+  private showItemClue(id: string | null): void {
+    const el = document.getElementById('itemclue');
+    if (!el) return;
+    if (!id) {
+      el.classList.remove('show');
+      el.innerHTML = '';
+      return;
+    }
+    const item = this.scene.items[id];
+    el.innerHTML =
+      `<span class="ic-icon">${item.icon || ''}</span>` +
+      `<span class="ic-name">${item.name}</span>` +
+      `<span class="ic-desc">${item.description}</span>`;
+    el.classList.add('show');
   }
 
   private renderStage(state: GameState): void {
@@ -109,10 +127,12 @@ export class Renderer {
     if (this.selectedItem && this.selectedItem !== id) {
       const first = this.selectedItem;
       this.selectedItem = null;
+      this.showItemClue(null);
       this.cb.onAction({ type: 'combine', itemA: first, itemB: id });
     } else {
       this.selectedItem = this.selectedItem === id ? null : id;
       this.renderInventory(this.state);
+      this.showItemClue(this.selectedItem);
     }
   }
 

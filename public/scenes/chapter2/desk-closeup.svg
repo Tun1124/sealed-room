@@ -49,14 +49,17 @@
     <rect x="210" y="436" width="34" height="48" rx="4" fill="#b6c8d2"/>
   </g>
 
-  <!-- diary (examine, only meaningful after the drawer opened) -->
-  <g transform="rotate(6 520 470)">
-    <ellipse cx="520" cy="540" rx="86" ry="14" fill="#000" opacity="0.18"/>
-    <rect x="446" y="410" width="150" height="120" rx="6" fill="url(#book)" stroke="#4a2233" stroke-width="2"/>
-    <rect x="446" y="410" width="16" height="120" rx="6" fill="#5e2c3e"/>
-    <rect x="470" y="430" width="110" height="8" rx="3" fill="#c9a44f" opacity="0.7"/>
-    <rect x="470" y="452" width="86" height="6" rx="3" fill="#e7d9b8" opacity="0.5"/>
-    <rect x="470" y="468" width="96" height="6" rx="3" fill="#e7d9b8" opacity="0.4"/>
+  <!-- small locked box (opens with the desk key -> magnifier) -->
+  <g transform="rotate(5 516 502)">
+    <ellipse cx="516" cy="566" rx="84" ry="14" fill="#000" opacity="0.18"/>
+    <rect x="446" y="452" width="146" height="108" rx="8" fill="#7c5530" stroke="#553a20" stroke-width="3"/>
+    <rect x="446" y="452" width="146" height="22" rx="8" fill="#8a5e34"/>
+    <rect x="452" y="482" width="134" height="72" rx="4" fill="#6f4c2a"/>
+    <rect x="450" y="456" width="12" height="12" fill="url(#brass)"/>
+    <rect x="576" y="456" width="12" height="12" fill="url(#brass)"/>
+    <circle cx="519" cy="514" r="9" fill="url(#brass)"/>
+    <circle cx="519" cy="512" r="3.4" fill="#2a1c10"/>
+    <rect x="517" y="512" width="4" height="9" fill="#2a1c10"/>
   </g>
 
   <!-- drawer with keypad lock (puzzle) -->

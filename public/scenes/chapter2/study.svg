@@ -53,11 +53,27 @@
   </g>
   <rect width="720" height="1280" fill="url(#vignette)"/>
 
+  <!-- rug on the floor (something hidden underneath) -->
+  <ellipse cx="360" cy="1150" rx="210" ry="74" fill="#7a3b34"/>
+  <ellipse cx="360" cy="1150" rx="210" ry="74" fill="none" stroke="#caa46a" stroke-width="5" opacity="0.7"/>
+  <ellipse cx="360" cy="1150" rx="168" ry="56" fill="none" stroke="#e7d2a6" stroke-width="3" opacity="0.5"/>
+  <ellipse cx="360" cy="1150" rx="96" ry="30" fill="#9c4a40"/>
+  <g stroke="#e7d2a6" stroke-width="2" opacity="0.4">
+    <line x1="220" y1="1150" x2="500" y2="1150"/><line x1="360" y1="1096" x2="360" y2="1204"/>
+  </g>
+
   <!-- ceiling attic hatch (interactable once you have the brass key) -->
   <rect x="280" y="22" width="160" height="96" rx="6" fill="#5c4226" stroke="#6f5234" stroke-width="3"/>
   <rect x="292" y="34" width="136" height="72" rx="4" fill="#4a3420"/>
   <rect x="300" y="42" width="120" height="8" fill="#3a2818"/>
   <circle cx="410" cy="70" r="6" fill="url(#brass)"/>
+
+  <!-- framed portrait (grandfather) with a scribble in the corner -->
+  <rect x="432" y="196" width="96" height="176" rx="4" fill="url(#brass)" stroke="#a8842f" stroke-width="3"/>
+  <rect x="446" y="210" width="68" height="148" fill="#33414c"/>
+  <circle cx="480" cy="262" r="22" fill="#7c8a96"/>
+  <path d="M452 348 q28 -44 56 0 z" fill="#6a7884"/>
+  <text x="500" y="350" font-family="Chakra Petch, monospace" font-size="9" fill="#cdb89a" text-anchor="end">IV:XVIII</text>
 
   <!-- bookshelf (left) — rotates with the crank to reveal the hidden room -->
   <ellipse cx="112" cy="946" rx="92" ry="20" fill="url(#contact)"/>

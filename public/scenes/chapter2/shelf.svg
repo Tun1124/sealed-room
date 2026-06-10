@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 1280" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="wallV" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#efe7da"/><stop offset="0.62" stop-color="#e3d8c5"/><stop offset="1" stop-color="#d3c6ad"/>
+    </linearGradient>
+    <radialGradient id="topLight" cx="0.5" cy="0.05" r="0.85">
+      <stop offset="0" stop-color="#fff7e8" stop-opacity="0.5"/><stop offset="1" stop-color="#fff7e8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="vignette" cx="0.5" cy="0.46" r="0.75">
+      <stop offset="0.52" stop-color="#241a10" stop-opacity="0"/><stop offset="1" stop-color="#241a10" stop-opacity="0.36"/>
+    </radialGradient>
+    <linearGradient id="case" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#6f4c2a"/><stop offset="1" stop-color="#553a20"/>
+    </linearGradient>
+    <linearGradient id="back" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4a3420"/><stop offset="1" stop-color="#3a2818"/>
+    </linearGradient>
+    <linearGradient id="brass" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f0d99a"/><stop offset="0.5" stop-color="#c9a44f"/><stop offset="1" stop-color="#e6c87f"/>
+    </linearGradient>
+    <linearGradient id="paper" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff7d6"/><stop offset="1" stop-color="#ffe98a"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="720" height="1280" fill="url(#wallV)"/>
+  <rect width="720" height="1280" fill="url(#topLight)"/>
+
+  <!-- bookcase -->
+  <rect x="150" y="210" width="470" height="900" rx="6" fill="url(#case)" stroke="#46301a" stroke-width="6"/>
+  <rect x="176" y="236" width="418" height="848" fill="url(#back)"/>
+  <!-- shelf board -->
+  <rect x="176" y="612" width="418" height="20" fill="#5c4226"/>
+  <rect x="176" y="612" width="418" height="4" fill="#7c5530"/>
+
+  <!-- four books with colour + year on the spine -->
+  <g font-family="Chakra Petch, sans-serif" font-size="22" font-weight="700" text-anchor="middle">
+    <!-- red 1928 -->
+    <rect x="214" y="300" width="64" height="300" rx="4" fill="#d6453c" stroke="#9e2f28" stroke-width="2"/>
+    <rect x="222" y="312" width="48" height="276" fill="#ffffff" opacity="0.08"/>
+    <text x="246" y="470" fill="#fff2ee" transform="rotate(90 246 470)">1928</text>
+    <!-- blue 1903 -->
+    <rect x="286" y="300" width="64" height="300" rx="4" fill="#3a73d6" stroke="#264e98" stroke-width="2"/>
+    <rect x="294" y="312" width="48" height="276" fill="#ffffff" opacity="0.08"/>
+    <text x="318" y="470" fill="#eef4ff" transform="rotate(90 318 470)">1903</text>
+    <!-- yellow 1951 -->
+    <rect x="358" y="300" width="64" height="300" rx="4" fill="#e8c33a" stroke="#b2922a" stroke-width="2"/>
+    <rect x="366" y="312" width="48" height="276" fill="#ffffff" opacity="0.10"/>
+    <text x="390" y="470" fill="#4a3a10" transform="rotate(90 390 470)">1951</text>
+    <!-- green 1917 -->
+    <rect x="430" y="300" width="64" height="300" rx="4" fill="#46b97a" stroke="#2f8456" stroke-width="2"/>
+    <rect x="438" y="312" width="48" height="276" fill="#ffffff" opacity="0.08"/>
+    <text x="462" y="470" fill="#eafff3" transform="rotate(90 462 470)">1917</text>
+  </g>
+  <!-- a note slipped between the books -->
+  <rect x="506" y="320" width="74" height="262" rx="3" fill="#cdb89a" opacity="0.5"/>
+
+  <!-- lower shelf: clutter + the rotate mechanism on the left -->
+  <rect x="196" y="700" width="120" height="20" rx="4" fill="#6a4f86"/>
+  <rect x="196" y="724" width="96" height="18" rx="4" fill="#3f6b57"/>
+
+  <!-- rotate mechanism (needs the crank) on the left edge -->
+  <circle cx="120" cy="660" r="30" fill="#3a2c1c" stroke="#caa46a" stroke-width="3"/>
+  <circle cx="120" cy="660" r="9" fill="url(#brass)"/>
+  <rect x="116" y="600" width="8" height="44" fill="url(#brass)"/>
+  <text x="120" y="726" font-family="Chakra Petch, sans-serif" font-size="13" fill="#6a4f34" text-anchor="middle" letter-spacing="2">AXLE</text>
+
+  <!-- torn letter half B (pickup, lower right) -->
+  <g transform="rotate(6 506 880)">
+    <ellipse cx="506" cy="946" rx="58" ry="9" fill="#000" opacity="0.18"/>
+    <polygon points="454,820 558,824 558,940 460,944" fill="url(#paper)"/>
+    <polygon points="454,820 464,842 452,862 464,884 454,906 464,926 460,944" fill="#e9cf63"/>
+    <line x1="478" y1="856" x2="542" y2="856" stroke="#b08f3a" stroke-width="4" stroke-linecap="round"/>
+    <line x1="478" y1="882" x2="530" y2="882" stroke="#b08f3a" stroke-width="4" stroke-linecap="round"/>
+  </g>
+
+  <!-- left back arrow -->
+  <g stroke="#5a4730" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.6">
+    <polyline points="58,628 32,660 58,692"/>
+  </g>
+
+  <rect width="720" height="1280" fill="url(#vignette)"/>
+</svg>
